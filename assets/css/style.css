@@ -70,7 +70,10 @@
 
 /* rental */
 .rental {
-  
+}
+
+.rental .filter-map {
+  height: 208px;
 }
 
 @media screen and (max-width: 991px) {
