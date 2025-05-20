@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rentoverflow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./assets/css/font.css">
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/bootstrap-icons.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="shortcut icon" href="./assets/image/fav.png" type="image/x-icon">
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="wrap">
+  <header class="header">
+    <div class="container d-flex justify-content-between align-items-center flex-md-row flex-row-reverse h-100">
+      <div class="header-inner d-flex align-items-center">
+        <!-- Logo -->
+        <a href="index.html" class="header-logo d-flex align-items-center">
+          <img src="./assets/image/fav.png" />
+          <strong class="txt ms-1 fs-20 fw-semibold d-lg-block d-sm-none">Rentoverflow</strong>
+        </a>
+        <!-- Search + New Property -->
+        <div class="search-box d-md-flex d-none align-items-center rounded-pill">
+          <i data-feather="search" class="fs-20"></i>
+          <input type="text" class="input-box w-100" placeholder="City, area or neighborhood">
+        </div>
+        <button class="header-alert d-md-block d-none fw-medium">New property alert</button>
+      </div>
+      <!-- Sign In -->
+      <div class="header-dropdown">
+        <button class="btn-signin d-flex align-items-center rounded-pill">
+          <span class="txt fs-18 fw-medium">Sign in</span>
+          <i class="bi bi-justify-right fs-20"></i>
+        </button>
+        <!-- <button class="btn btn-outline-primary rounded-pill dropdown-toggle d-flex align-items-center gap-1" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+          Account <i class="bi bi-person"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userMenu">
+          <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i class="bi bi-box-arrow-in-right"></i> Sign in</a></li>
+          <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i class="bi bi-pencil-square"></i> Sign up</a></li>
+          <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i class="bi bi-question-circle"></i> FAQ</a></li>
+        </ul> -->
+      </div>
+    </div>
+  </header>
+  <nav aria-label="breadcrumb">
+    <div class="container">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html" class="breadcrumb-link">
+            Home
+          </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Rental Properties
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="rental">
+    <div class="container">
+      <div class="row">
+        <!-- Sidebar Filter -->
+        <div class="filter col-md-3">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="mb-3">Filter by</h5>
+
+              <!-- Budget -->
+              <label class="form-label">Your budget (per night)</label>
+              <input type="range" class="form-range" min="100" max="15000">
+
+              <!-- Size -->
+              <label class="form-label mt-3">Size (m²)</label>
+              <div class="d-flex gap-2">
+                <input type="number" class="form-control" placeholder="From">
+                <input type="number" class="form-control" placeholder="To">
+              </div>
+
+              <!-- Rooms -->
+              <label class="form-label mt-3">Rooms</label>
+              <input type="number" class="form-control" placeholder="No. of rooms">
+
+              <!-- Bathrooms -->
+              <label class="form-label mt-3">Bathrooms</label>
+              <input type="number" class="form-control" placeholder="No. of bathrooms">
+
+              <!-- Pet Mentioned -->
+              <label class="form-label mt-3">Pet Mentioned</label>
+              <select class="form-select">
+                <option>No multiple choice</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+
+              <!-- Property Type -->
+              <label class="form-label mt-3">Property Type</label>
+              <select class="form-select">
+                <option>House</option>
+                <option>Flat</option>
+                <option>Studio</option>
+              </select>
+
+              <!-- Buttons -->
+              <div class="d-grid gap-2 mt-4">
+                <button class="btn btn-primary">View Properties</button>
+                <button class="btn btn-outline-secondary">Clear Filters</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Property Cards -->
+        <div class="list col-md-9">
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Repeat this block for each property -->
+            <div class="col">
+              <div class="card">
+                <img src="./assets/image/rent/1.jpg" class="card-img-top" alt="rent1">
+                <div class="card-body">
+                  <h5 class="card-title text-primary">$850,000 <small class="text-muted">/ month</small></h5>
+                  <p class="card-text text-muted mb-1">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</p>
+                  <div class="d-flex text-muted small">
+                    <div class="me-3"><i class="bi bi-house-door"></i> 4 Rooms</div>
+                    <div class="me-3"><i class="bi bi-arrows-fullscreen"></i> 27m²</div>
+                    <div><i class="bi bi-building"></i> Flat</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="./assets/image/rent/2.jpg" class="card-img-top" alt="rent2">
+                <div class="card-body">
+                  <h5 class="card-title text-primary">$850,000 <small class="text-muted">/ month</small></h5>
+                  <p class="card-text text-muted mb-1">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</p>
+                  <div class="d-flex text-muted small">
+                    <div class="me-3"><i class="bi bi-house-door"></i> 4 Rooms</div>
+                    <div class="me-3"><i class="bi bi-arrows-fullscreen"></i> 27m²</div>
+                    <div><i class="bi bi-building"></i> Flat</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="./assets/image/rent/3.jpg" class="card-img-top" alt="rent3">
+                <div class="card-body">
+                  <h5 class="card-title text-primary">$850,000 <small class="text-muted">/ month</small></h5>
+                  <p class="card-text text-muted mb-1">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</p>
+                  <div class="d-flex text-muted small">
+                    <div class="me-3"><i class="bi bi-house-door"></i> 4 Rooms</div>
+                    <div class="me-3"><i class="bi bi-arrows-fullscreen"></i> 27m²</div>
+                    <div><i class="bi bi-building"></i> Flat</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="./assets/image/rent/1.jpg" class="card-img-top" alt="rent1">
+                <div class="card-body">
+                  <h5 class="card-title text-primary">$850,000 <small class="text-muted">/ month</small></h5>
+                  <p class="card-text text-muted mb-1">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</p>
+                  <div class="d-flex text-muted small">
+                    <div class="me-3"><i class="bi bi-house-door"></i> 4 Rooms</div>
+                    <div class="me-3"><i class="bi bi-arrows-fullscreen"></i> 27m²</div>
+                    <div><i class="bi bi-building"></i> Flat</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End card -->
+          </div>
+
+          <!-- Pagination -->
+          <nav class="d-flex justify-content-center mt-4">
+            <ul class="pagination">
+              <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">»</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/bootstrap.bundle.min.js"></script>
+<script src="./assets/js/feather.min.js"></script>
+<script src="./assets/js/leaflet.js"></script>
+<script src="./assets/js/swiper-bundle.min.js"></script>
+<script src="./assets/js/main.js"></script>
+
+</body>
+</html>

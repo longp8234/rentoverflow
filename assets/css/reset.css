@@ -1,0 +1,61 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  --black: #1B2533;
+  --blue: #1451AE;
+  --secondary: #575D66;
+  --placehover: #CBD4E1;
+  --white: #fff;
+  --surface: #FAFAFA;
+  --line: #EFF3F7;
+}
+
+html,
+body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--black);
+    background-color: var(--white);
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.blind,
+caption span,
+legend {
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+}
+
+select,
+input {
+    border: none;
+    outline: none;
+    appearance: none;
+    background-color: transparent;
+}
+
+a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+button {
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--black);
+}
