@@ -107,11 +107,59 @@ feather.replace();
 
     // Bắt sự kiện nút xóa lọc
     $('#clearBtn').click(function () {
-        $('#budgetRange').val(100);
-        $('#sizeMin, #sizeMax, #roomsMin, #bathroomsMin, #bathroomsMax').val('');
-        $('#roomsMax, #petMentioned, #propertyType').prop('selectedIndex', 0);
+        $('.range-min').val(0);
+        $('.range-max').val(5000);
+        $('.filter-price .price-min').text('0€')
+        $('.filter-price .price-max').text('5000€')
+        $('.filter-price .tow-bar .progress').css({ 'left': "1px", 'right': "1px" })
+        $('#sizeMin, #sizeMax, #roomsMin, #roomsMax, #bathroomsMin, #bathroomsMax').val('');
     });
 
+    const handlePriceRange = function () {
+        const rangeInput = $('.filter-price .range-input .input')
+        const progress = $('.filter-price .tow-bar .progress')
+        const minPrice = $('.filter-price .price-min')
+        const maxPrice = $('.filter-price .price-max')
+        let priceGap = 200
+
+        rangeInput.on('input', function () {
+            let minValue = parseInt(rangeInput.eq(0).val())
+            let maxValue = parseInt(rangeInput.eq(1).val())
+
+            if (maxValue - minValue <= priceGap) {
+                if ($(this).hasClass('range-min')) {
+                    rangeInput.eq(0).val(maxValue - priceGap)
+                    minValue = maxValue - priceGap
+                } else {
+                    rangeInput.eq(1).val(minValue + priceGap)
+                    maxValue = minValue + priceGap
+                }
+            } else {
+                progress.css({
+                    'left': (minValue / rangeInput.eq(0).attr('max')) * 100 + "%",
+                    'right': 100 - (maxValue / rangeInput.eq(1).attr('max')) * 100 + "%"
+                });
+            }
+
+            minPrice.text(minValue + '€')
+            maxPrice.text(maxValue + '€')
+        })
+    }
+
+    const handleDropdownActive = function () {
+        $(document).on('click', '.dropdown-menu .dropdown-item', function (e) {
+            e.preventDefault();
+            const $menu = $(this).closest('.dropdown-menu');
+            $menu.find('.dropdown-item').removeClass('active');
+            $(this).addClass('active');
+
+            const $button = $menu.siblings('button');
+            $button.text($(this).text());
+        });
+    }
+
     $(win).on('load', function () {
+        handlePriceRange()
+        handleDropdownActive()
     });
 })(window, window.jQuery);
