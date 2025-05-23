@@ -1,0 +1,120 @@
+/* card rent */
+.card-rent {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--white);
+}
+
+.card-rent .card-img-top {
+  border-radius: 0;
+}
+
+.card-rent .swiper {
+  user-select: none;
+}
+
+.card-rent .swiper-button-next,
+.card-rent .swiper-button-prev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--white);
+  color: var(--blue);
+}
+
+.card-rent .swiper-button-next {
+  right: 16px;
+}
+
+.card-rent .swiper-button-prev {
+  left: 16px;
+}
+
+.card-rent .swiper-button-next::after,
+.card-rent .swiper-button-prev::after {
+  font-size: 16px;
+}
+
+.card-rent .card-body {
+  padding: 20px;
+}
+
+.card-rent .card-title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  color: var(--blue);
+}
+
+.card-rent .card-title .txt {
+  margin-left: 6px;
+  color: var(--black);
+}
+
+.card-rent .card-wishlist {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.card-rent .card-wishlist .bi-heart-fill {
+  display: none;
+}
+
+.card-rent .card-wishlist.active .bi-heart {
+  display: none;
+}
+
+.card-rent .card-wishlist.active .bi-heart-fill {
+  display: block;
+  color: #F24848;
+}
+
+.card-rent .card-desc {
+  overflow: hidden;
+  display: -webkit-box;
+  margin: 12px 0;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+}
+
+.card-rent .card-desc .txt {
+  margin-left: 6px;
+}
+
+.card-rent .card-info {
+  gap: 12px;
+}
+
+.card-rent .card-info-item i+.txt {
+  margin-left: 8px;
+}
+
+.card-rent .card-info-item:not(:last-child) {
+  position: relative;
+  padding-right: 13px;
+}
+
+.card-rent .card-info-item:not(:last-child)::after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 20px;
+  background-color: var(--placehover);
+  content: '';
+}

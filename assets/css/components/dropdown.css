@@ -1,0 +1,88 @@
+/* dropdown */
+.dropdown .btn {
+  position: relative;
+  height: 48px;
+  padding: 0 36px 0 12px;
+  border-radius: 12px;
+  border: 1px solid var(--placehover);
+  background: var(--white);
+}
+
+.dropdown .btn:focus {
+  background: var(--white);
+}
+
+.dropdown .btn.btn-has-before::before {
+  content: 'Sort:';
+  margin-right: 12px;
+  font-weight: 500;
+}
+
+.dropdown .btn::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+  margin-left: 0;
+  font-size: 20px;
+  color: #CBD4E1;
+}
+
+.dropdown .dropdown-menu {
+  padding: 16px 8px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.15);
+}
+
+.filter-item .dropdown .dropdown-menu {
+  width: 100%;
+}
+
+.dropdown .dropdown-item {
+  padding: 12px 8px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  background-color: transparent;
+}
+
+.dropdown .dropdown-item:hover {
+  background-color: #E5F0FF;
+}
+
+.dropdown .dropdown-item:active {
+  color: var(--black);
+}
+
+.dropdown .dropdown-item.active {
+  color: var(--blue);
+}
+
+@media screen and (max-width: 1199px) {
+  .dropdown .btn {
+    overflow: hidden;
+    max-width: 228px;
+    height: 40px;
+    padding: 0 32px 0 12px;
+    line-height: 40px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: unset;
+  }
+
+  .dropdown .btn.btn-has-before::before {
+    margin-right: 4px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .dropdown .btn {
+    max-width: 200px;
+  }
+}

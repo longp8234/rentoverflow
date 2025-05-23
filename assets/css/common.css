@@ -21,7 +21,20 @@
 }
 
 @media screen and (max-width: 767px) {
+    html,
+    body {
+        font-size: 14px;
+    }
     .container {
         padding: 0 20px;
+    }
+    .fs-24 {
+        font-size: 20px;
+    }
+    .fs-20 {
+        font-size: 18px;
+    }
+    .fs-18 {
+        font-size: 16px;
     }
 }

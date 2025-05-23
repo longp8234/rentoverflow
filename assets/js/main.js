@@ -1,22 +1,24 @@
 ; (function (win, $) {
-    const initLeafletMap = function () {
-        // Initial leaflet map
-        if ($('#map').length > 0) {
-            var map = L.map('map').setView([51.505, -0.09], 12);
+    const initLeafletMaps = function () {
+        $('#map').each(function () {
+            const mapEl = this;
+
+            const map = L.map(mapEl).setView([51.505, -0.09], 12);
 
             L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                 maxZoom: 19,
-                attribution: '&copy; <a href="https://carto.com">CartoDB</a>'
             }).addTo(map);
 
-            L.icon({
-                iconUrl: '/assets/image/location.png',
-                iconSize: [32, 32]
-            });
+            // const markerIcon = L.icon({
+            //     iconUrl: '/assets/image/location.png',
+            //     iconSize: [32, 32]
+            // });
 
-            setTimeout(() => map.invalidateSize(), 100);
-        }
-    }
+            // L.marker([51.505, -0.09], { icon: markerIcon }).addTo(map);
+
+            // setTimeout(() => map.invalidateSize(), 100);
+        });
+    };
 
     const handlePriceRange = function () {
         const rangeInput = $('.filter-price .range-input .input')
@@ -64,14 +66,14 @@
                 petMentioned: $('#sortOptionsPet .dropdown-item.active').attr('data-value'),
                 propertyType: $('#sortOptionsType .dropdown-item.active').attr('data-value'),
             };
-    
+
             // In ra console (hoặc xử lý gửi AJAX ở đây)
             console.log('Filters:', filters);
-    
+
             // Gửi request, ví dụ:
             // $.post('/filter-properties', filters, function(response) { ... });
         });
-    
+
         // Bắt sự kiện nút xóa lọc
         $('#clearBtn').click(function () {
             $('.range-min').val(0);
@@ -96,10 +98,9 @@
     }
 
     const initCardSwiper = function () {
-        $('.card-rent').each(function() {
+        $('.card-rent').each(function () {
             const id = $(this).attr('data-id');
-            console.log(id);
-            
+
             const card = $(this).find('.card-thumb-swiper')[0];
             new Swiper(card, {
                 slidesPerView: 1,
@@ -112,11 +113,69 @@
         });
     }
 
+    // Open popup
+    const handleOpenPopup = function () {
+        const btnOpenPopup = $('.js-btn-open-popup')
+
+        btnOpenPopup.on("click", function (e) {
+            e.preventDefault()
+
+            const popupType = $(this).data('type')
+            $('.popup-item').each(function (e) {
+                if ($(this).data('type') === popupType) {
+                    $(this).addClass('open')
+                    $('body').addClass('scroll-locked')
+
+                    // Sau khi popup mở, khởi tạo hoặc hiển thị map
+                    const mapEl = $(this).find('.map')[0]
+
+                    // Kiểm tra nếu chưa có map thì khởi tạo
+                    if (!mapEl._leaflet_map_instance) {
+                        const map = L.map(mapEl).setView([51.505, -0.09], 13)
+
+                        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                            maxZoom: 19,
+                            attribution: '&copy; <a href="https://carto.com">CartoDB</a>'
+                        }).addTo(map)
+
+                        mapEl._leaflet_map_instance = map
+                    }
+
+                    // Dù đã khởi tạo thì vẫn cần invalidateSize để render đúng
+                    setTimeout(() => {
+                        mapEl._leaflet_map_instance.invalidateSize()
+                    }, 200)
+                }
+            })
+        })
+
+        $('.popup-item').on("click", function (e) {
+            e.stopPropagation()
+        })
+    }
+
+    // Close popup
+    const handleClosePopup = function () {
+        const popup = $(".popup")
+
+        popup.on('click', function () {
+            popup.find('>.open').removeClass('open')
+            $('body').removeClass('scroll-locked')
+        })
+
+        $('.close-popup-btn').on('click', function () {
+            popup.find('>.open').removeClass('open')
+            $('body').removeClass('scroll-locked')
+        })
+    }
+
     $(win).on('load', function () {
-        initLeafletMap()
+        initLeafletMaps()
         handlePriceRange()
         handleFilterAction()
         handleDropdownActive()
         initCardSwiper()
+        handleOpenPopup()
+        handleClosePopup()
     });
 })(window, window.jQuery);

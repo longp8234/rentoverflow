@@ -1,0 +1,45 @@
+/* tag */
+.rental .tags-title {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.rental .tags-list {
+  margin-top: 24px;
+}
+
+.rental .tags-link {
+  display: block;
+  padding: 12px 20px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background-color: var(--white);
+}
+
+.rental .tags-link:hover {
+  background: var(--line);
+}
+
+@media screen and (max-width: 1199px) {
+  .rental .tags-title {
+    font-size: 20px;
+  }
+
+  .rental .tags-list {
+    margin-top: 8px;
+  }
+
+  .rental .tags-link {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .rental .tags-title {
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  .rental .tags-link {
+    font-size: 14px;
+  }
+}

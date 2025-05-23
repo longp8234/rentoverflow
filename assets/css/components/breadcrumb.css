@@ -1,0 +1,29 @@
+/* breadcrumb */
+.breadcrumb {
+  margin: 20px 0;
+  background-color: transparent;
+}
+
+.breadcrumb-item,
+.breadcrumb-link {
+  color: var(--secondary);
+}
+
+.breadcrumb-item.active {
+  color: var(--blue);
+}
+
+.breadcrumb-item + .breadcrumb-item {
+  padding-left: 0;
+}
+
+.breadcrumb-ic {
+  margin: 2px 8px 0;
+  color: var(--placehover);
+}
+
+@media screen and (max-width: 1199px) {
+  .breadcrumb {
+    margin: 16px 0;
+  }
+}
