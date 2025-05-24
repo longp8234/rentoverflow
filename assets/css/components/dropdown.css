@@ -62,7 +62,7 @@
 }
 
 @media screen and (max-width: 1199px) {
-  .dropdown .btn {
+  .dropdown.dropdown-small .btn {
     overflow: hidden;
     max-width: 228px;
     height: 40px;
@@ -81,8 +81,8 @@
   }
 }
 
-@media screen and (max-width: 1199px) {
-  .dropdown .btn {
+@media screen and (max-width: 767px) {
+  .dropdown.dropdown-small .btn {
     max-width: 200px;
   }
 }

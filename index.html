@@ -36,18 +36,30 @@
         </div>
         <!-- Sign In -->
         <div class="header-dropdown">
-          <button class="btn-signin d-flex align-items-center rounded-pill">
-            <span class="txt fs-18 fw-medium">Sign in</span>
-            <i class="bi bi-justify-right fs-20"></i>
-          </button>
-          <!-- <button class="btn btn-outline-primary rounded-pill dropdown-toggle d-flex align-items-center gap-1" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
-          Account <i class="bi bi-person"></i>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userMenu">
-          <li><a class="dropdown-item d-flex align-items-center gap-2" href="#!"><i class="bi bi-box-arrow-in-right"></i> Sign in</a></li>
-          <li><a class="dropdown-item d-flex align-items-center gap-2" href="#!"><i class="bi bi-pencil-square"></i> Sign up</a></li>
-          <li><a class="dropdown-item d-flex align-items-center gap-2" href="#!"><i class="bi bi-question-circle"></i> FAQ</a></li>
-        </ul> -->
+          <div class="header-account">
+            <button class="btn d-flex align-items-center rounded-pill" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="txt fs-18 fw-medium">Account</span>
+              <i class="bi bi-justify-right fs-20"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow px-2 py-4" aria-labelledby="userMenu">
+              <li><a class="dropdown-item d-flex align-items-center gap-2 p-2" href="#!"><i class="bi bi-person-fill text-primary"></i> Profile</a></li>
+              <li><a class="dropdown-item d-flex align-items-center gap-2 p-2" href="#!"><i class="bi bi-award-fill text-primary"></i> Membership</a></li>
+              <li><a class="dropdown-item d-flex align-items-center gap-2 p-2" href="#!"><i class="bi bi-star-fill text-primary"></i> Favourites</a></li>
+              <li><a class="dropdown-item d-flex align-items-center gap-2 p-2" href="#!"><i class="bi bi-chat-text-fill text-primary"></i> Search Agents</a></li>
+              <li><a class="dropdown-item d-flex align-items-center gap-2 p-2 mt-2 pt-2 border-top" href="#!"><i class="bi bi-wechat text-primary"></i> FAQ</a></li>
+              <li><a class="dropdown-item d-flex align-items-center gap-2 p-2 mt-2 text-danger" href="#!"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
+            </ul>
+          </div>
+          <!-- <div class="header-signin">
+            <button class="btn d-flex align-items-center rounded-pill" id="signinMenu" data-bs-toggle="dropdown" aria-expanded="false">
+              Sign in <i class="bi bi-person-fill"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow px-2 py-4" aria-labelledby="signinMenu">
+              <li><a class="dropdown-item d-flex align-items-center gap-2 p-2" href="#!"><i class="bi bi-person-circle text-primary"></i> Sign in</a></li>
+              <li><a class="dropdown-item d-flex align-items-center gap-2 p-2 mt-2" href="#!"><i class="bi bi-person-fill-add text-primary"></i> Sign up</a></li>
+              <li><a class="dropdown-item d-flex align-items-center gap-2 p-2 mt-2 pt-2 border-top" href="#!"><i class="bi bi-wechat text-primary"></i> FAQ</a></li>
+            </ul>
+          </div> -->
         </div>
       </div>
     </header>
@@ -76,10 +88,10 @@
           <!-- Filterbar -->
           <div class="filter col-xl-3 d-none d-xl-block">
             <div class="filter-map w-100 overflow-hidden">
-              <div id="map" class="map w-100 h-100"></div>
+              <div class="map w-100 h-100"></div>
             </div>
             <div class="card">
-              <h5 class="card-heading fs-18 fw-semibold">Filter by</h5>
+              <h5 class="filter-title fs-18 fw-semibold">Filter by</h5>
               <!-- Budget -->
               <div class="filter-item filter-price">
                 <label class="form-label d-block">Your budget (per night)</label>
@@ -169,7 +181,7 @@
               </p>
               <!-- Dropdown -->
               <div class="dropdown-list d-flex gap-2">
-                <div class="dropdown">
+                <div class="dropdown dropdown-small">
                   <button class="btn btn-has-before dropdown-toggle" type="button" id="sortDropdown"
                     data-bs-toggle="dropdown" aria-expanded="false">Top picks for long stays</button>
                   <ul class="dropdown-menu shadow rounded-3 p-2" aria-labelledby="sortDropdown" id="sortOptionsMenu">
@@ -190,8 +202,8 @@
                     <li><a class="dropdown-item" href="#!" data-value="top_reviewed">Top reviewed</a></li>
                   </ul>
                 </div>
-                <div class="dropdown d-none d-md-block d-xl-none">
-                  <button class="btn dropdown-toggle fw-medium js-btn-open-popup" type="button" data-type="popup-filter">Filter</button>
+                <div class="dropdown dropdown-small d-none d-md-block d-xl-none">
+                  <button class="btn dropdown-toggle fw-medium" type="button" data-bs-toggle="modal"  data-bs-target="#modalFilter">Filter</button>
                 </div>
               </div>
             </div>
@@ -959,94 +971,106 @@
     </footer>
   </div>
 
-  <!-- Popup -->
-  <div class="popup">
-    <div id="popupMap" class="popup-item popup-filter" data-type="popup-filter">
-      <!-- Filterbar -->
-      <div class="filter">
-        <div class="filter-map w-100 overflow-hidden">
-          <div id="map" class="map w-100 h-100"></div>
-        </div>
-        <div class="card">
-          <h5 class="card-heading fs-18 fw-semibold">Filter by</h5>
-          <!-- Budget -->
-          <div class="filter-item filter-price">
-            <label class="form-label d-block">Your budget (per night)</label>
-            <div class="price-range d-flex justify-content-between position-relative">
-              <span class="price-min">0€</span>
-              <span class="txt position-absolute translate-middle-x start-50">to</span>
-              <span class="price-max">5000€</span>
-            </div>
-            <div class="tow-bar">
-              <div class="progress"></div>
-            </div>
-            <div class="range-input">
-              <input class="input range-min" type="range" min="0" max="5000" value="0" />
-              <input class="input range-max" type="range" min="0" max="5000" value="5000" />
-            </div>
+  <!-- Moodal -->
+  <div class="modal fade" id="modalFilter" tabindex="-1" aria-labelledby="modalFilterLabel" aria-hidden="true">
+    <div class="modal-dialog modal-filter">
+      <div class="modal-content">
+        <!-- Filterbar -->
+        <div class="filter">
+          <div class="filter-heading d-flex align-items-center justify-content-between">
+            <!-- Logo -->
+            <a href="index.html" class="header-logo d-flex align-items-center">
+              <img src="./assets/image/fav.png" />
+              <strong class="txt ms-1 fs-20 fw-semibold">Rentoverflow</strong>
+            </a>
+            <button type="button" data-bs-dismiss="modal">
+              <i class="bi bi-x fs-24"></i>
+            </button>
           </div>
-          <!-- Size -->
-          <div class="filter-item">
-            <label class="form-label d-block">Size (m²)</label>
-            <div class="group-input d-flex align-items-center">
-              <input type="number" class="form-control" placeholder="Min" id="sizeMin" min="0">
-              <span class="txt">to</span>
-              <input type="number" class="form-control" placeholder="Max" id="sizeMax" min="0">
+          <div class="filter-content">
+            <div class="filter-map w-100 overflow-hidden">
+              <div class="map w-100 h-100"></div>
             </div>
-          </div>
-          <!-- Rooms -->
-          <div class="filter-item">
-            <label class="form-label">Rooms</label>
-            <div class="group-input d-flex align-items-center">
-              <input type="number" class="form-control" placeholder="Min" id="roomsMin" min="0">
-              <span class="txt">to</span>
-              <input type="number" class="form-control" placeholder="Max" id="roomsMax" min="0">
+            <h5 class="filter-title fs-18 fw-semibold">Filter by</h5>
+            <!-- Budget -->
+            <div class="filter-item filter-price">
+              <label class="form-label d-block">Your budget (per night)</label>
+              <div class="price-range d-flex justify-content-between position-relative">
+                <span class="price-min">0€</span>
+                <span class="txt position-absolute translate-middle-x start-50">to</span>
+                <span class="price-max">5000€</span>
+              </div>
+              <div class="tow-bar">
+                <div class="progress"></div>
+              </div>
+              <div class="range-input">
+                <input class="input range-min" type="range" min="0" max="5000" value="0" />
+                <input class="input range-max" type="range" min="0" max="5000" value="5000" />
+              </div>
             </div>
-          </div>
-          <!-- Bathrooms -->
-          <div class="filter-item">
-            <label class="form-label">Bathrooms</label>
-            <div class="group-input d-flex align-items-center">
-              <input type="number" class="form-control" placeholder="Min" id="bathroomsMin" min="0">
-              <span class="txt">to</span>
-              <input type="number" class="form-control" placeholder="Max" id="bathroomsMax" min="0">
+            <!-- Size -->
+            <div class="filter-item">
+              <label class="form-label d-block">Size (m²)</label>
+              <div class="group-input d-flex align-items-center">
+                <input type="number" class="form-control" placeholder="Min" id="sizeMin" min="0">
+                <span class="txt">to</span>
+                <input type="number" class="form-control" placeholder="Max" id="sizeMax" min="0">
+              </div>
             </div>
-          </div>
-          <!-- Pet Mentioned -->
-          <div class="filter-item">
-            <label class="form-label">Pet Mentioned</label>
-            <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle w-100 text-start" type="button" id="petMentioned"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                No multiple choice
-              </button>
-              <ul class="dropdown-menu shadow rounded-3 p-2" aria-labelledby="petMentioned" id="sortOptionsPet">
-                <li><a class="dropdown-item active" href="#!" data-value="no">No multiple choice</a></li>
-                <li><a class="dropdown-item" href="#!" data-value="yes">Yes</a></li>
-              </ul>
+            <!-- Rooms -->
+            <div class="filter-item">
+              <label class="form-label">Rooms</label>
+              <div class="group-input d-flex align-items-center">
+                <input type="number" class="form-control" placeholder="Min" id="roomsMin" min="0">
+                <span class="txt">to</span>
+                <input type="number" class="form-control" placeholder="Max" id="roomsMax" min="0">
+              </div>
             </div>
-          </div>
-          <!-- Property Type -->
-          <div class="filter-item">
-            <label class="form-label">Property Type</label>
-            <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle w-100 text-start" type="button" id="propertyType"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                House
-              </button>
-              <ul class="dropdown-menu shadow rounded-3 p-2" aria-labelledby="propertyType" id="sortOptionsType">
-                <li><a class="dropdown-item active" href="#!" data-value="house">House</a></li>
-                <li><a class="dropdown-item" href="#!" data-value="flat">Flat</a></li>
-                <li><a class="dropdown-item" href="#!" data-value="room">Room</a></li>
-                <li><a class="dropdown-item" href="#!" data-value="studioFlat">Studio - Flat</a></li>
-                <li><a class="dropdown-item" href="#!" data-value="studentAccomodation">Student - Accomodation</a></li>
-              </ul>
+            <!-- Bathrooms -->
+            <div class="filter-item">
+              <label class="form-label">Bathrooms</label>
+              <div class="group-input d-flex align-items-center">
+                <input type="number" class="form-control" placeholder="Min" id="bathroomsMin" min="0">
+                <span class="txt">to</span>
+                <input type="number" class="form-control" placeholder="Max" id="bathroomsMax" min="0">
+              </div>
             </div>
-          </div>
-          <!-- Buttons -->
-          <div class="filter-btn d-grid gap-2">
-            <button class="btn btn-primary" id="filterBtn">View Properties</button>
-            <button class="btn btn-clear" id="clearBtn">Clear Filters</button>
+            <!-- Pet Mentioned -->
+            <div class="filter-item">
+              <label class="form-label">Pet Mentioned</label>
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle w-100 text-start" type="button" id="petMentionedModal"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  No multiple choice
+                </button>
+                <ul class="dropdown-menu shadow rounded-3 p-2" aria-labelledby="petMentionedModal" id="sortOptionsPetModal">
+                  <li><a class="dropdown-item active" href="#!" data-value="no">No multiple choice</a></li>
+                  <li><a class="dropdown-item" href="#!" data-value="yes">Yes</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Property Type -->
+            <div class="filter-item">
+              <label class="form-label">Property Type</label>
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle w-100 text-start" type="button" id="propertyTypeModal"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  House
+                </button>
+                <ul class="dropdown-menu shadow rounded-3 p-2" aria-labelledby="propertyTypeModal" id="sortOptionsTypeModal">
+                  <li><a class="dropdown-item active" href="#!" data-value="house">House</a></li>
+                  <li><a class="dropdown-item" href="#!" data-value="flat">Flat</a></li>
+                  <li><a class="dropdown-item" href="#!" data-value="room">Room</a></li>
+                  <li><a class="dropdown-item" href="#!" data-value="studioFlat">Studio - Flat</a></li>
+                  <li><a class="dropdown-item" href="#!" data-value="studentAccomodation">Student - Accomodation</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Buttons -->
+            <div class="filter-btn d-grid gap-2">
+              <button class="btn btn-primary" id="filterBtn">View Properties</button>
+              <button class="btn btn-clear" id="clearBtn">Clear Filters</button>
+            </div>
           </div>
         </div>
       </div>

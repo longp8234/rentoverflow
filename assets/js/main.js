@@ -1,13 +1,18 @@
 ; (function (win, $) {
     const initLeafletMaps = function () {
-        $('#map').each(function () {
+        $('.map').each(function () {
             const mapEl = this;
 
-            const map = L.map(mapEl).setView([51.505, -0.09], 12);
+            // Nếu đã khởi tạo, bỏ qua
+            if (mapEl._leaflet_map_instance) return;
+
+            const map = L.map(mapEl).setView([51.505, -0.09], 13);
 
             L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                 maxZoom: 19,
             }).addTo(map);
+
+            mapEl._leaflet_map_instance = map;
 
             // const markerIcon = L.icon({
             //     iconUrl: '/assets/image/location.png',
@@ -115,42 +120,29 @@
 
     // Open popup
     const handleOpenPopup = function () {
-        const btnOpenPopup = $('.js-btn-open-popup')
+        const btnOpenPopup = $('.btn')
 
-        btnOpenPopup.on("click", function (e) {
-            e.preventDefault()
+        btnOpenPopup.on("click", function () {
+            if ($(this).attr('data-bs-target') === '#modalFilter') {
+                // Sau khi popup mở, khởi tạo hoặc hiển thị map
+                const mapEl = $('#modalFilter').find('.map')[0]
 
-            const popupType = $(this).data('type')
-            $('.popup-item').each(function (e) {
-                if ($(this).data('type') === popupType) {
-                    $(this).addClass('open')
-                    $('body').addClass('scroll-locked')
+                // Kiểm tra nếu chưa có map thì khởi tạo
+                if (!mapEl._leaflet_map_instance) {
+                    const map = L.map(mapEl).setView([51.505, -0.09], 13)
 
-                    // Sau khi popup mở, khởi tạo hoặc hiển thị map
-                    const mapEl = $(this).find('.map')[0]
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                        maxZoom: 19,
+                    }).addTo(map)
 
-                    // Kiểm tra nếu chưa có map thì khởi tạo
-                    if (!mapEl._leaflet_map_instance) {
-                        const map = L.map(mapEl).setView([51.505, -0.09], 13)
-
-                        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                            maxZoom: 19,
-                            attribution: '&copy; <a href="https://carto.com">CartoDB</a>'
-                        }).addTo(map)
-
-                        mapEl._leaflet_map_instance = map
-                    }
-
-                    // Dù đã khởi tạo thì vẫn cần invalidateSize để render đúng
-                    setTimeout(() => {
-                        mapEl._leaflet_map_instance.invalidateSize()
-                    }, 200)
+                    mapEl._leaflet_map_instance = map
                 }
-            })
-        })
 
-        $('.popup-item').on("click", function (e) {
-            e.stopPropagation()
+                // Dù đã khởi tạo thì vẫn cần invalidateSize để render đúng
+                setTimeout(() => {
+                    mapEl._leaflet_map_instance.invalidateSize()
+                }, 200)
+            }
         })
     }
 
@@ -176,6 +168,6 @@
         handleDropdownActive()
         initCardSwiper()
         handleOpenPopup()
-        handleClosePopup()
+        // handleClosePopup()
     });
 })(window, window.jQuery);
