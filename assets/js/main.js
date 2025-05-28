@@ -21,7 +21,7 @@
 
             // L.marker([51.505, -0.09], { icon: markerIcon }).addTo(map);
 
-            // setTimeout(() => map.invalidateSize(), 100);
+            setTimeout(() => map.invalidateSize(), 200);
         });
     };
 
@@ -146,21 +146,6 @@
         })
     }
 
-    // Close popup
-    const handleClosePopup = function () {
-        const popup = $(".popup")
-
-        popup.on('click', function () {
-            popup.find('>.open').removeClass('open')
-            $('body').removeClass('scroll-locked')
-        })
-
-        $('.close-popup-btn').on('click', function () {
-            popup.find('>.open').removeClass('open')
-            $('body').removeClass('scroll-locked')
-        })
-    }
-
     $(win).on('load', function () {
         initLeafletMaps()
         handlePriceRange()
@@ -168,6 +153,5 @@
         handleDropdownActive()
         initCardSwiper()
         handleOpenPopup()
-        // handleClosePopup()
     });
 })(window, window.jQuery);

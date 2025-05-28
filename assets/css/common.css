@@ -3,6 +3,26 @@
     padding: 0 40px;
 }
 
+/* button */
+.btn-primary {
+    background-color: var(--blue) !important;
+}
+
+.btn-outline-primary {
+    border-color: var(--blue) !important;
+    color: var(--blue) !important;
+}
+
+/* text */
+.text-primary {
+    color: var(--blue) !important;
+}
+
+/* bg */
+.bg-primary {
+    background-color: var(--blue) !important;
+}
+
 /* fonts */
 .fs-24 {
     font-size: 24px;

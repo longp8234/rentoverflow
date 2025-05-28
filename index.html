@@ -35,34 +35,47 @@
           <button class="header-alert d-md-block d-none fw-medium">New property alert</button>
         </div>
         <!-- Sign In -->
-        <div class="header-dropdown">
+        <button class="btn-menu d-xl-none" type="button" data-bs-toggle="modal" data-bs-target="#modalNavMobile">
+          <i class="bi bi-justify-right fs-20"></i>
+        </button>
+        <div class="header-dropdown d-none d-xl-block">
           <div class="header-account">
             <button class="btn d-flex align-items-center rounded-pill" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
               <span class="txt fs-18 fw-medium">Account</span>
               <i class="bi bi-justify-right fs-20"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-end shadow px-2 py-4" aria-labelledby="userMenu">
-              <li><a class="item d-flex align-items-center gap-2 p-2" href="#!"><i class="bi bi-person-fill text-primary"></i> Profile</a></li>
-              <li><a class="item d-flex align-items-center gap-2 p-2" href="#!"><i class="bi bi-award-fill text-primary"></i> Membership</a></li>
-              <li><a class="item d-flex align-items-center gap-2 p-2" href="#!"><i class="bi bi-star-fill text-primary"></i> Favourites</a></li>
-              <li><a class="item d-flex align-items-center gap-2 p-2" href="#!"><i class="bi bi-chat-text-fill text-primary"></i> Search Agents</a></li>
-              <li><a class="item d-flex align-items-center gap-2 p-2 mt-2 pt-2 border-top" href="#!"><i class="bi bi-wechat text-primary"></i> FAQ</a></li>
-              <li><a class="item d-flex align-items-center gap-2 p-2 mt-2 text-danger" href="#!"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i class="bi bi-person-fill text-primary"></i> Profile</a></li>
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i class="bi bi-award-fill text-primary"></i> Membership</a></li>
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i class="bi bi-star-fill text-primary"></i> Favourites</a></li>
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i class="bi bi-chat-text-fill text-primary"></i> Search Agents</a></li>
+              <li class="mt-2 pt-2 border-top"><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i class="bi bi-wechat text-primary"></i> FAQ</a></li>
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18 mt-2 text-danger" href="#!"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
             </ul>
           </div>
           <!-- <div class="header-signin">
             <button class="btn d-flex align-items-center rounded-pill" id="signinMenu" data-bs-toggle="dropdown" aria-expanded="false">
-              Sign in <i class="bi bi-person-fill"></i>
+              <span class="txt fs-18 fw-medium">Sign in</span>
+              <i class="bi bi-person-fill"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-end shadow px-2 py-4" aria-labelledby="signinMenu">
-              <li><a class="item d-flex align-items-center gap-2 p-2" href="#!"><i class="bi bi-person-circle text-primary"></i> Sign in</a></li>
-              <li><a class="item d-flex align-items-center gap-2 p-2 mt-2" href="#!"><i class="bi bi-person-fill-add text-primary"></i> Sign up</a></li>
-              <li><a class="item d-flex align-items-center gap-2 p-2 mt-2 pt-2 border-top" href="#!"><i class="bi bi-wechat text-primary"></i> FAQ</a></li>
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i class="bi bi-person-circle text-primary"></i> Sign in</a></li>
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18 mt-2" href="#!"><i class="bi bi-person-fill-add text-primary"></i> Sign up</a></li>
+              <li class="mt-2 pt-2 border-top"><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i class="bi bi-wechat text-primary"></i> FAQ</a></li>
             </ul>
           </div> -->
         </div>
       </div>
     </header>
+    <!-- Only Properties page (mobile) -->
+    <div class="header-action d-flex align-items-center gap-2 d-md-none">
+      <!-- Search -->
+      <div class="search-box d-flex align-items-center w-100 rounded-pill">
+        <i class="ph ph-magnifying-glass fs-20"></i>
+        <input type="text" class="input-box w-100" placeholder="City, area or neighborhood">
+      </div>
+      <button class="btn dropdown-toggle d-inline-flex align-items-center flex-shrink-0 gap-2 fs-14 fw-medium" type="button" data-bs-toggle="modal" data-bs-target="#modalFilter">Filter</button>
+    </div>
     <!-- BREADCRUMB -->
     <nav aria-label="breadcrumb">
       <div class="container">
@@ -203,7 +216,7 @@
                   </ul>
                 </div>
                 <div class="dropdown dropdown-small d-none d-md-block d-xl-none">
-                  <button class="btn dropdown-toggle fw-medium" type="button" data-bs-toggle="modal"  data-bs-target="#modalFilter">Filter</button>
+                  <button class="btn dropdown-toggle fw-medium" type="button" data-bs-toggle="modal" data-bs-target="#modalFilter">Filter</button>
                 </div>
               </div>
             </div>
@@ -976,8 +989,8 @@
     <div class="modal-dialog modal-filter">
       <div class="modal-content">
         <!-- Filterbar -->
-        <div class="filter">
-          <div class="filter-heading d-flex align-items-center justify-content-between">
+        <div class="filter bg-white">
+          <div class="modal-heading d-flex align-items-center justify-content-between">
             <!-- Logo -->
             <a href="index.html" class="header-logo d-flex align-items-center">
               <img src="./assets/image/fav.png" />
@@ -1072,6 +1085,112 @@
               <button class="btn btn-clear" id="clearBtn">Clear Filters</button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="modalNavMobile" tabindex="-1" aria-labelledby="modalNavMobileLabel" aria-hidden="true">
+    <div class="modal-dialog modal-menu-mobile">
+      <div class="modal-content">
+        <div class="menu-mobile bg-white">
+          <div class="modal-heading d-flex align-items-center justify-content-between">
+            <!-- Logo -->
+            <a href="index.html" class="header-logo d-flex align-items-center">
+              <img src="./assets/image/fav.png" />
+              <strong class="txt ms-1 fs-20 fw-semibold">Rentoverflow</strong>
+            </a>
+            <button type="button" data-bs-dismiss="modal">
+              <i class="bi bi-x fs-24"></i>
+            </button>
+          </div>
+          <ul class="menu-mobile-nav-list">
+            <li class="menu-mobile-nav-item">
+              <h6 class="text-capitalize text-heading">Trending Pages</h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-house-fill"></i>
+                    <span class="txt">Home</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18 active" href="#!">
+                    <i class="bi bi-search-heart-fill"></i>
+                    <span class="txt">Search Properties</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-door-open-fill"></i>
+                    <span class="txt">New property alert</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-mobile-nav-item">
+              <h6 class="text-capitalize text-heading">About Us</h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-chat-square-quote-fill"></i>
+                    <span class="txt">Terms & Conditions</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-newspaper"></i>
+                    <span class="txt">Blog Rentoverflow</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-wechat"></i>
+                    <span class="txt">FAQ</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-mobile-nav-item nav-account">
+              <h6 class="text-capitalize text-heading">Account</h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-person-fill"></i>
+                    <span class="txt">Account Information</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-star-fill"></i>
+                    <span class="txt">User Favorites</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-journal-album"></i>
+                    <span class="txt">Manage Subscriptions</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span class="txt">Log Out</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <!-- <div class="menu-mobile-btn d-grid gap-2">
+            <button class="btn btn-primary fs-18">
+              <i class="bi bi-person-circle"></i>
+              <span class="txt ms-2">Sign in</span>
+            </button>
+            <button class="btn btn-outline-primary fs-18">
+              <i class="bi bi-person-fill-add"></i>
+              <span class="txt ms-2">Sign up</span>
+            </button>
+          </div> -->
         </div>
       </div>
     </div>
