@@ -69,6 +69,10 @@
   background: var(--surface);
 }
 
+.card-rent .card-wishlist .bi::before {
+  display: block;
+}
+
 .card-rent .card-wishlist .bi-heart-fill {
   display: none;
 }

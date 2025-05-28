@@ -12,6 +12,10 @@
   background: var(--white);
 }
 
+.dropdown .btn.show::after {
+  color: var(--black);
+}
+
 .dropdown .btn.btn-has-before::before {
   content: 'Sort:';
   margin-right: 12px;

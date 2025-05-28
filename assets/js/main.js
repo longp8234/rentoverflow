@@ -26,68 +26,109 @@
     };
 
     const handlePriceRange = function () {
-        const rangeInput = $('.filter-price .range-input .input')
-        const progress = $('.filter-price .tow-bar .progress')
-        const minPrice = $('.filter-price .price-min')
-        const maxPrice = $('.filter-price .price-max')
-        let priceGap = 200
+        const priceGap = 200;
 
-        rangeInput.on('input', function () {
-            let minValue = parseInt(rangeInput.eq(0).val())
-            let maxValue = parseInt(rangeInput.eq(1).val())
+        $('.filter-price').each(function () {
+            const container = $(this);
+            const rangeInputs = container.find('.range-input .input');
+            const progress = container.find('.tow-bar .progress');
+            const minPrice = container.find('.price-min');
+            const maxPrice = container.find('.price-max');
+            const towBar = container.find('.tow-bar');
 
-            if (maxValue - minValue <= priceGap) {
-                if ($(this).hasClass('range-min')) {
-                    rangeInput.eq(0).val(maxValue - priceGap)
-                    minValue = maxValue - priceGap
-                } else {
-                    rangeInput.eq(1).val(minValue + priceGap)
-                    maxValue = minValue + priceGap
-                }
-            } else {
+            const updateUI = () => {
+                const minVal = parseInt(rangeInputs.eq(0).val());
+                const maxVal = parseInt(rangeInputs.eq(1).val());
+                const max = parseInt(rangeInputs.eq(0).attr('max'));
+
                 progress.css({
-                    'left': (minValue / rangeInput.eq(0).attr('max')) * 100 + "%",
-                    'right': 100 - (maxValue / rangeInput.eq(1).attr('max')) * 100 + "%"
+                    'left': (minVal / max) * 100 + '%',
+                    'right': 100 - (maxVal / max) * 100 + '%'
                 });
-            }
 
-            minPrice.text(minValue + '€')
-            maxPrice.text(maxValue + '€')
-        })
-    }
+                minPrice.text(minVal + '€');
+                maxPrice.text(maxVal + '€');
+            };
+
+            // Input logic
+            rangeInputs.on('input', function () {
+                let minVal = parseInt(rangeInputs.eq(0).val());
+                let maxVal = parseInt(rangeInputs.eq(1).val());
+
+                if (maxVal - minVal <= priceGap) {
+                    if ($(this).hasClass('range-min')) {
+                        minVal = maxVal - priceGap;
+                        rangeInputs.eq(0).val(minVal);
+                    } else {
+                        maxVal = minVal + priceGap;
+                        rangeInputs.eq(1).val(maxVal);
+                    }
+                }
+
+                updateUI();
+            });
+
+            // Click logic
+            towBar.on('click', function (e) {
+                const barOffset = $(this).offset().left;
+                const barWidth = $(this).width();
+                const clickX = e.pageX - barOffset;
+                const clickPercent = clickX / barWidth;
+                const max = parseInt(rangeInputs.eq(0).attr('max'));
+                const targetValue = Math.round(clickPercent * max);
+
+                const minVal = parseInt(rangeInputs.eq(0).val());
+                const maxVal = parseInt(rangeInputs.eq(1).val());
+
+                const distToMin = Math.abs(targetValue - minVal);
+                const distToMax = Math.abs(targetValue - maxVal);
+
+                if (distToMin < distToMax) {
+                    const newMin = Math.min(targetValue, maxVal - priceGap);
+                    rangeInputs.eq(0).val(newMin);
+                } else {
+                    const newMax = Math.max(targetValue, minVal + priceGap);
+                    rangeInputs.eq(1).val(newMax);
+                }
+
+                updateUI();
+            });
+        });
+    };
 
     const handleFilterAction = function () {
         // Bắt sự kiện nút lọc
-        $('#filterBtn').click(function () {
-            const filters = {
-                priceMin: $('.range-min').val(),
-                priceMax: $('.range-max').val(),
-                sizeMin: $('#sizeMin').val(),
-                sizeMax: $('#sizeMax').val(),
-                roomsMin: $('#roomsMin').val(),
-                roomsMax: $('#roomsMax').val(),
-                bathroomsMin: $('#bathroomsMin').val(),
-                bathroomsMax: $('#bathroomsMax').val(),
-                petMentioned: $('#sortOptionsPet .dropdown-item.active').attr('data-value'),
-                propertyType: $('#sortOptionsType .dropdown-item.active').attr('data-value'),
-            };
-
-            // In ra console (hoặc xử lý gửi AJAX ở đây)
-            console.log('Filters:', filters);
-
-            // Gửi request, ví dụ:
-            // $.post('/filter-properties', filters, function(response) { ... });
-        });
+        $('.btn-filter').each(function(){
+            $(this).on('click', function () {
+                const filters = {
+                    priceMin: $(this).closest('.filter').find('.range-min').val(),
+                    priceMax: $(this).closest('.filter').find('.range-max').val(),
+                    sizeMin: $(this).closest('.filter').find('#sizeMin').val(),
+                    sizeMax: $(this).closest('.filter').find('#sizeMax').val(),
+                    roomsMin: $(this).closest('.filter').find('#roomsMin').val(),
+                    roomsMax: $(this).closest('.filter').find('#roomsMax').val(),
+                    bathroomsMin: $(this).closest('.filter').find('#bathroomsMin').val(),
+                    bathroomsMax: $(this).closest('.filter').find('#bathroomsMax').val(),
+                    petMentioned: $(this).closest('.filter').find('.dropdown-pet .dropdown-item.active').attr('data-value'),
+                    propertyType: $(this).closest('.filter').find('.dropdown-property .dropdown-item.active').attr('data-value'),
+                };
+    
+                // In ra console (hoặc xử lý ở đây)
+                console.log('Filters:', filters);
+            });
+        })
 
         // Bắt sự kiện nút xóa lọc
-        $('#clearBtn').click(function () {
-            $('.range-min').val(0);
-            $('.range-max').val(5000);
-            $('.filter-price .price-min').text('0€')
-            $('.filter-price .price-max').text('5000€')
-            $('.filter-price .tow-bar .progress').css({ 'left': "1px", 'right': "1px" })
-            $('#sizeMin, #sizeMax, #roomsMin, #roomsMax, #bathroomsMin, #bathroomsMax').val('');
-        });
+        $('.btn-clear').each(function(){
+            $(this).on('click', function () {
+                $(this).closest('.filter').find('.range-min').val(0);
+                $(this).closest('.filter').find('.range-max').val(5000);
+                $(this).closest('.filter').find('.filter-price .price-min').text('0€')
+                $(this).closest('.filter').find('.filter-price .price-max').text('5000€')
+                $(this).closest('.filter').find('.filter-price .tow-bar .progress').css({ 'left': "1px", 'right': "1px" })
+                $(this).closest('.filter').find('#sizeMin, #sizeMax, #roomsMin, #roomsMax, #bathroomsMin, #bathroomsMax').val('');
+            });
+        })
     }
 
     const handleDropdownActive = function () {
@@ -99,6 +140,13 @@
 
             const $button = $menu.siblings('button');
             $button.text($(this).text());
+        });
+    }
+
+    const handleToggleBtn = function () {
+        $(document).on('click', '.btn-toggle', function (e) {
+            e.preventDefault();
+            $(this).toggleClass('active');
         });
     }
 
@@ -152,6 +200,7 @@
         handleFilterAction()
         handleDropdownActive()
         initCardSwiper()
+        handleToggleBtn()
         handleOpenPopup()
     });
 })(window, window.jQuery);

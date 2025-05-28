@@ -1,8 +1,28 @@
 /* filter */
 .filter .filter-map {
+  position: relative;
   height: 208px;
   border: 1px solid var(--line);
   border-radius: 12px;
+}
+
+.filter .btn-edit-map {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 400;
+  padding: 9px 20px;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--white) !important;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.filter .leaflet-touch .leaflet-top {
+  top: unset;
+  bottom: 12px;
 }
 
 .filter .leaflet-touch .leaflet-bar {
@@ -49,6 +69,11 @@
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--white);
+}
+
+.filter-item .form-control::-webkit-inner-spin-button,
+.filter-item .form-control::-webkit-outer-spin-button {
+  opacity: 1;
 }
 
 .filter-item .form-control:focus,
