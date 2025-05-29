@@ -6,13 +6,13 @@
 }
 
 :root {
-  --black: #1B2533;
-  --blue: #1451AE;
-  --secondary: #575D66;
-  --placehover: #CBD4E1;
-  --white: #fff;
-  --surface: #FAFAFA;
-  --line: #EFF3F7;
+    --black: #1B2533;
+    --blue: #1451AE;
+    --secondary: #575D66;
+    --placehover: #CBD4E1;
+    --white: #fff;
+    --surface: #FAFAFA;
+    --line: #EFF3F7;
 }
 
 html,
@@ -53,6 +53,10 @@ input:focus {
     background-color: transparent;
 }
 
+input {
+    box-shadow: none !important;
+}
+
 ul,
 li {
     margin: 0;
@@ -71,4 +75,8 @@ button {
     outline: none;
     background-color: transparent;
     color: var(--black);
+}
+
+p {
+    margin-bottom: 0;
 }

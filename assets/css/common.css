@@ -1,3 +1,11 @@
+.section {
+    margin-top: 80px;
+}
+
+.section-last {
+    margin-bottom: 80px;
+}
+
 .container {
     max-width: 1400px;
     padding: 0 40px;
@@ -24,36 +32,73 @@
 }
 
 /* fonts */
+.heading3 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.heading4 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
 .fs-24 {
     font-size: 24px;
 }
+
 .fs-20 {
     font-size: 20px;
 }
+
 .fs-18 {
     font-size: 18px;
 }
+
 .fs-16 {
     font-size: 16px;
 }
+
 .fs-14 {
     font-size: 14px;
 }
 
+@media screen and (max-width: 1199px) {
+    .heading3 {
+        font-size: 24px;
+    }
+
+    .heading4 {
+        font-size: 20px;
+    }
+}
+
 @media screen and (max-width: 767px) {
+
     html,
     body {
         font-size: 14px;
     }
+
     .container {
         padding: 0 20px;
     }
+
+    .heading3 {
+        font-size: 20px;
+    }
+
+    .heading4 {
+        font-size: 18px;
+    }
+
     .fs-24 {
         font-size: 20px;
     }
+
     .fs-20 {
         font-size: 18px;
     }
+
     .fs-18 {
         font-size: 16px;
     }

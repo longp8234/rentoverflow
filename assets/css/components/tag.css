@@ -1,9 +1,4 @@
 /* tag */
-.rental .tags-title {
-  font-size: 32px;
-  font-weight: 600;
-}
-
 .rental .tags-list {
   margin-top: 24px;
 }
@@ -21,10 +16,6 @@
 }
 
 @media screen and (max-width: 1199px) {
-  .rental .tags-title {
-    font-size: 20px;
-  }
-
   .rental .tags-list {
     margin-top: 8px;
   }
@@ -33,10 +24,10 @@
     font-size: 16px;
   }
 }
+
 @media screen and (max-width: 767px) {
   .rental .tags-title {
     padding: 12px;
-    font-size: 18px;
   }
 
   .rental .tags-link {
