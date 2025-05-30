@@ -26,6 +26,10 @@
     color: var(--blue) !important;
 }
 
+.text-secondary {
+    color: var(--secondary) !important;
+}
+
 /* bg */
 .bg-primary {
     background-color: var(--blue) !important;

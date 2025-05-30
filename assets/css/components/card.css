@@ -10,12 +10,12 @@
   border-radius: 0;
 }
 
-.card-rent .swiper {
+.swiper {
   user-select: none;
 }
 
-.card-rent .swiper-button-next,
-.card-rent .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,19 +24,42 @@
   border-radius: 50%;
   background-color: var(--white);
   color: var(--blue);
+  transition: background-color .3s, color .3s;
 }
 
-.card-rent .swiper-button-next {
+.swiper-button-next {
   right: 16px;
 }
 
-.card-rent .swiper-button-prev {
+.swiper-button-prev {
   left: 16px;
 }
 
-.card-rent .swiper-button-next::after,
-.card-rent .swiper-button-prev::after {
+.swiper-button-next::after,
+.swiper-button-prev::after {
   font-size: 16px;
+}
+
+.swiper-button-next.swiper-button-lg,
+.swiper-button-prev.swiper-button-lg {
+  width: 48px;
+  height: 48px;
+}
+
+.swiper-button-next.swiper-button-relative,
+.swiper-button-prev.swiper-button-relative {
+  position: relative;
+  top: unset;
+  left: unset;
+  right: unset;
+  bottom: unset;
+  transform: none;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: var(--blue);
+  color: var(--white);
 }
 
 .card-rent .card-body {

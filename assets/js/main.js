@@ -166,6 +166,29 @@
         });
     }
 
+    const initCitiesSwiper = function () {
+        new Swiper('.topCitiesSwiper', {
+            slidesPerView: 2,
+            spaceBetween: 16,
+            loop: true,
+            navigation: {
+            nextEl: ".cities-swiper-btn .swiper-button-next",
+            prevEl: ".cities-swiper-btn .swiper-button-prev",
+            },
+            breakpoints: {
+                576: {
+                    slidesPerView: 3,
+                },
+                768: {
+                    slidesPerView: 4,
+                },
+                992: {
+                    slidesPerView: 5,
+                }
+            }
+        });
+    }
+
     // Open popup
     const handleOpenPopup = function () {
         const btnOpenPopup = $('.btn')
@@ -200,6 +223,7 @@
         handleFilterAction()
         handleDropdownActive()
         initCardSwiper()
+        initCitiesSwiper()
         handleToggleBtn()
         handleOpenPopup()
     });
