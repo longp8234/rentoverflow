@@ -4,12 +4,15 @@
 @import url('./components/header.css');
 @import url('./components/footer.css');
 @import url('./components/filterbar.css');
+@import url('./components/button.css');
 @import url('./components/dropdown.css');
 @import url('./components/breadcrumb.css');
 @import url('./components/card.css');
 @import url('./components/tag.css');
 @import url('./components/pagination.css');
 @import url('./components/modal.css');
+@import url('./components/custom-map.css');
+@import url('./components/custom-swiper.css');
 
 @import url('./pages/home.css');
 @import url('./pages/properties.css');

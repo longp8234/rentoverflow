@@ -3,7 +3,7 @@
   margin-top: 24px;
 }
 
-.rental .tags-link {
+.tags-link {
   display: block;
   padding: 12px 20px;
   border-radius: 16px;
@@ -11,7 +11,7 @@
   background-color: var(--white);
 }
 
-.rental .tags-link:hover {
+.tags-link:hover {
   background: var(--line);
 }
 
@@ -20,7 +20,7 @@
     margin-top: 8px;
   }
 
-  .rental .tags-link {
+  .tags-link {
     font-size: 16px;
   }
 }
@@ -30,7 +30,7 @@
     padding: 12px;
   }
 
-  .rental .tags-link {
+  .tags-link {
     font-size: 14px;
   }
 }

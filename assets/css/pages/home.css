@@ -19,18 +19,12 @@
     margin: 12px 0 32px;
 }
 
-.types .types-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    height: 56px;
-    padding: 0px 60px;
-    border: 1px solid var(--line);
-    background-color: var(--surface);
+.types-link {
+    padding: 14px 60px;
+    background-color: var(--surface) !important;
 }
 
-.types .types-btn:hover {
+.types .types-link:hover {
     color: var(--white);
     background-color: var(--blue);
 }
@@ -40,19 +34,133 @@
     padding: 40px 0 40px 40px;
 }
 
-.tenants-btn .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    height: 64px;
-    padding: 0px 24px 0 32px;
-    border: 1px solid var(--blue);
-    background-color: var(--blue);
+/* section maps */
+.maps .filter-map {
+    height: auto;
+    aspect-ratio: 2 / 1;
+    border-radius: 24px;
 }
 
-.tenants-btn .btn-outline-dark {
-    border-color: var(--black);
-    background-color: var(--white);
-    color: var(--black);
+/* section tags */
+.tags .accordion-item {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background-color: var(--surface);
+}
+
+.tags .accordion-item+.accordion-item {
+    margin-top: 12px;
+}
+
+.tags .accordion-body {
+    padding: 0 24px 24px;
+}
+
+@media screen and (max-width: 1199px) {
+    .hero {
+        height: 300px;
+    }
+
+    .search-bar {
+        max-width: 420px;
+        height: 60px;
+    }
+
+    .types-link {
+        padding: 10px 40px;
+        font-size: 14px;
+    }
+
+    .tenants-bg {
+        aspect-ratio: 1 / 1;
+    }
+
+    .tenants-bg img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .tenants-content {
+        padding: 32px 0 32px 12px;
+    }
+
+    .tenants-content .fs-20 {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .hero {
+        height: 260px;
+    }
+
+    .hero .display-1 {
+        font-size: 32px;
+    }
+
+    .hero .display-5 {
+        font-size: 20px;
+    }
+
+    .hero .fs-20 {
+        font-size: 14px;
+    }
+
+    .hero p.mt-4 {
+        font-size: 12px;
+    }
+
+    .search-bar {
+        max-width: 320px;
+        height: 48px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    .tenants-bg {
+        aspect-ratio: 3 / 2;
+    }
+
+    .tenants-content {
+        padding: 0 10px;
+    }
+
+    .tenants-btn {
+        flex-direction: column;
+    }
+
+    .tenants-btn .btn-main {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .maps .filter-map {
+        aspect-ratio: 1 / 1;
+    }
+
+    .cta {
+        background-color: transparent !important;
+    }
+
+    .cta-content {
+        padding: 16px 20px;
+        border-radius: 12px;
+        background-color: var(--blue);
+    }
+
+    .cta .btn-main {
+        width: 100%;
+    }
+
+    .tags .accordion-button {
+        padding: 16px;
+    }
+
+    .tags .accordion-body {
+        padding: 0 16px 16px;
+    }
+    
+    .tags .tags-link {
+        padding: 12px;
+    }
 }

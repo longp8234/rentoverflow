@@ -170,20 +170,32 @@
         new Swiper('.topCitiesSwiper', {
             slidesPerView: 2,
             spaceBetween: 16,
+            // grid: {
+            //     rows: 2
+            // },
             loop: true,
             navigation: {
             nextEl: ".cities-swiper-btn .swiper-button-next",
             prevEl: ".cities-swiper-btn .swiper-button-prev",
             },
             breakpoints: {
-                576: {
-                    slidesPerView: 3,
-                },
                 768: {
-                    slidesPerView: 4,
+                    slidesPerView: 3,
+                    grid: {
+                        rows: 1
+                    },
                 },
-                992: {
+                1024: {
+                    slidesPerView: 4,
+                    grid: {
+                        rows: 1
+                    },
+                },
+                1280: {
                     slidesPerView: 5,
+                    grid: {
+                        rows: 1
+                    },
                 }
             }
         });

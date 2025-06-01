@@ -1,0 +1,75 @@
+.swiper {
+  user-select: none;
+  width: 100%;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--white);
+  color: var(--blue);
+  transition: background-color .3s, color .3s;
+}
+
+.swiper-button-next {
+  right: 16px;
+}
+
+.swiper-button-prev {
+  left: 16px;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.swiper-button-next.swiper-button-lg,
+.swiper-button-prev.swiper-button-lg {
+  width: 48px;
+  height: 48px;
+}
+
+.swiper-button-next.swiper-button-relative,
+.swiper-button-prev.swiper-button-relative {
+  position: relative;
+  top: unset;
+  left: unset;
+  right: unset;
+  bottom: unset;
+  transform: none;
+}
+
+@media screen and (max-width: 1199px) {
+  .swiper-button-next.swiper-button-lg,
+  .swiper-button-prev.swiper-button-lg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 12px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev,
+  .swiper-button-next.swiper-button-lg,
+  .swiper-button-prev.swiper-button-lg {
+    width: 32px;
+    height: 32px;
+  }
+}
