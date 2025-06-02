@@ -28,7 +28,7 @@
   color: var(--black);
 }
 
-.card-rent .card-wishlist {
+.card-wishlist {
   display: flex;
   flex-shrink: 0;
   justify-content: center;
@@ -40,19 +40,19 @@
   background: var(--surface);
 }
 
-.card-rent .card-wishlist .bi::before {
+.card-wishlist .bi::before {
   display: block;
 }
 
-.card-rent .card-wishlist .bi-heart-fill {
+.card-wishlist .bi-heart-fill {
   display: none;
 }
 
-.card-rent .card-wishlist.active .bi-heart {
+.card-wishlist.active .bi-heart {
   display: none;
 }
 
-.card-rent .card-wishlist.active .bi-heart-fill {
+.card-wishlist.active .bi-heart-fill {
   display: block;
   color: #F24848;
 }
@@ -74,16 +74,16 @@
   gap: 12px;
 }
 
-.card-rent .card-info-item i+.txt {
+.card-info-item i+.txt {
   margin-left: 8px;
 }
 
-.card-rent .card-info-item:not(:last-child) {
+.card-info-item:not(:last-child) {
   position: relative;
   padding-right: 13px;
 }
 
-.card-rent .card-info-item:not(:last-child)::after {
+.card-info-item:not(:last-child)::after {
   position: absolute;
   right: 0;
   top: 50%;

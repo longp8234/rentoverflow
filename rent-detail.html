@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rentoverflow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./assets/css/font.css">
+  <link rel="stylesheet" href="./assets/css/libs/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/libs/bootstrap-icons.css">
+  <link rel="stylesheet" href="./assets/css/libs/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./assets/css/libs/leaflet.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="shortcut icon" href="./assets/image/fav.png" type="image/x-icon">
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container d-flex justify-content-between align-items-center flex-md-row flex-row-reverse h-100">
+        <div class="header-inner d-flex align-items-center">
+          <!-- Logo -->
+          <a href="index.html" class="header-logo d-flex align-items-center">
+            <img src="./assets/image/fav.png" />
+            <strong class="txt ms-1 fs-20 fw-semibold d-lg-block d-sm-none">Rentoverflow</strong>
+          </a>
+          <!-- Search + New Property -->
+          <div class="search-box d-md-flex d-none align-items-center rounded-pill">
+            <i class="ph ph-magnifying-glass fs-20"></i>
+            <input type="text" class="input-box w-100" placeholder="City, area or neighborhood">
+          </div>
+          <button class="header-alert d-md-block d-none fw-medium">New property alert</button>
+        </div>
+        <!-- Sign In -->
+        <button class="btn-menu d-xl-none" type="button" data-bs-toggle="modal" data-bs-target="#modalNavMobile">
+          <i class="bi bi-justify-right fs-20"></i>
+        </button>
+        <div class="header-dropdown d-none d-xl-block">
+          <div class="header-account">
+            <button class="btn d-flex align-items-center rounded-pill" id="userMenu" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <span class="txt fs-18 fw-medium">Account</span>
+              <i class="bi bi-justify-right fs-20"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow px-2 py-4" aria-labelledby="userMenu">
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i
+                    class="bi bi-person-fill text-primary"></i> Profile</a></li>
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i
+                    class="bi bi-award-fill text-primary"></i> Membership</a></li>
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i
+                    class="bi bi-star-fill text-primary"></i> Favourites</a></li>
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i
+                    class="bi bi-chat-text-fill text-primary"></i> Search Agents</a></li>
+              <li class="mt-2 pt-2 border-top"><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i
+                    class="bi bi-wechat text-primary"></i> FAQ</a></li>
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18 mt-2 text-danger" href="#!"><i
+                    class="bi bi-box-arrow-right"></i> Log Out</a></li>
+            </ul>
+          </div>
+          <!-- <div class="header-signin">
+            <button class="btn d-flex align-items-center rounded-pill" id="signinMenu" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="txt fs-18 fw-medium">Sign in</span>
+              <i class="bi bi-person-fill"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow px-2 py-4" aria-labelledby="signinMenu">
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i class="bi bi-person-circle text-primary"></i> Sign in</a></li>
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18 mt-2" href="#!"><i class="bi bi-person-fill-add text-primary"></i> Sign up</a></li>
+              <li class="mt-2 pt-2 border-top"><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i class="bi bi-wechat text-primary"></i> FAQ</a></li>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+    </header>
+    <!-- BREADCRUMB -->
+    <nav aria-label="breadcrumb">
+      <div class="container">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="index.html" class="breadcrumb-link">
+              Home
+            </a>
+          </li>
+          <li class="breadcrumb-ic">
+            <i class="ph ph-caret-right"></i>
+          </li>
+          <li class="breadcrumb-item" aria-current="page">
+            Rental Properties
+          </li>
+          <li class="breadcrumb-ic">
+            <i class="ph ph-caret-right"></i>
+          </li>
+          <li class="breadcrumb-item" aria-current="page">
+            Maya’s Bakehouses
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="rent-detail">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9">
+            <!-- INFO -->
+            <div class="info pb-2">
+              <h4 class="heading4 pb-2">Maya’s Bakehouses</h4>
+              <p class="d-flex align-items-center gap-1 fs-20">
+                <span class="bi bi-geo-alt"></span>
+                <span>Maya’s Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+              </p>
+              <div class="images mt-4">
+                <div class="swiper swiper-thumb">
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <img src="./assets/image/rent/1.jpg" alt="rent 1">
+                    </li>
+                    <li class="swiper-slide">
+                      <img src="./assets/image/rent/2.jpg" alt="rent 2">
+                    </li>
+                    <li class="swiper-slide">
+                      <img src="./assets/image/rent/3.jpg" alt="rent 3">
+                    </li>
+                    <li class="swiper-slide">
+                      <img src="./assets/image/rent/4.jpg" alt="rent 4">
+                    </li>
+                    <li class="swiper-slide">
+                      <img src="./assets/image/rent/5.jpg" alt="rent 5">
+                    </li>
+                    <li class="swiper-slide">
+                      <img src="./assets/image/rent/6.jpg" alt="rent 6">
+                    </li>
+                  </ul>
+                  <button type="button" class="swiper-button-next swiper-button-next-thumb">
+                    <span class="blind">swiper button next</span>
+                  </button>
+                  <button type="button" class="swiper-button-prev swiper-button-prev-thumb">
+                    <span class="blind">swiper button prev</span>
+                  </button>
+                </div>
+                <div class="swiper swiper-images mt-3">
+                  <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                      <img src="./assets/image/rent/1.jpg" alt="rent 1">
+                    </li>
+                    <li class="swiper-slide">
+                      <img src="./assets/image/rent/2.jpg" alt="rent 2">
+                    </li>
+                    <li class="swiper-slide">
+                      <img src="./assets/image/rent/3.jpg" alt="rent 3">
+                    </li>
+                    <li class="swiper-slide">
+                      <img src="./assets/image/rent/4.jpg" alt="rent 4">
+                    </li>
+                    <li class="swiper-slide">
+                      <img src="./assets/image/rent/5.jpg" alt="rent 5">
+                    </li>
+                    <li class="swiper-slide">
+                      <img src="./assets/image/rent/6.jpg" alt="rent 6">
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="values mt-4">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h3 class="heading3 text-primary mb-0">$850,000 <small class="fs-20 fw-normal ml-2 text-black">/ per
+                      night</small>
+                  </h3>
+                  <button type="button" class="d-flex align-items-center gap-2">
+                    <span class="fs-20">Add to Favourites</span>
+                    <span class="card-wishlist btn-toggle ml-1">
+                      <i class="bi bi-heart"></i>
+                      <i class="bi bi-heart-fill"></i>
+                    </span>
+                  </button>
+                </div>
+                <div class="card-info d-flex flex-wrap align-items-center gap-2 mt-1">
+                  <span class="card-info-item d-flex align-items-center">
+                    <i class="ph ph-bed fs-18"></i>
+                    <span class="txt fs-18">4 Rooms</span>
+                  </span>
+                  <span class="card-info-item d-flex align-items-center">
+                    <i class="ph ph-frame-corners fs-18"></i>
+                    <span class="txt fs-18">27m²</span>
+                  </span>
+                  <span class="card-info-item d-flex align-items-center ms-1">
+                    <span class="txt fs-18">Flat</span>
+                  </span>
+                </div>
+              </div>
+              <div class="description d-flex flex-column-reverse gap-2 mt-4">
+                <a href="#" class="text-primary fw-medium btn-toggle d-inline">Read more...</a>
+                <div class="content">
+                  <h5 class="heading5">Fawcett Street, Chelsea</h5>
+                  <p class="fs-20 pt-1">Welcome to Townhouse @ Newlands Street Stoke, brought to you by Stoke Rooms &
+                    Suites. The Co-Living experience you have been searching for! <br>The rental:<br>Move into your new
+                    vibrant modern room in Stoke within 48 hours
+                  </p>
+                  <p class="fs-20">The rent includes:</p>
+                  <ul class="pb-4 fs-20">
+                    <li>
+                      <i class="bi bi-dot"></i>
+                      <span>Gas, Electric, Water, Council Tax, WIFI, TV License...</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-dot"></i>
+                      <span>Regular cleaning</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-dot"></i>
+                      <span>FREE WIFI system</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-dot"></i>
+                      <span>Free 24/7 maintenance hotline</span>
+                    </li>
+                  </ul>
+                  <p class="fs-20">Included within the room:</p>
+                  <ul class="pb-4 fs-20">
+                    <li>
+                      <i class="bi bi-dot"></i>
+                      <span>Comfortable double bed & modern furniture</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-dot"></i>
+                      <span>Super Fast WIFI</span>
+                    </li>
+                  </ul>
+                  <p class="fs-20">House facilities</p>
+                  <ul class="pb-4 fs-20">
+                    <li>
+                      <i class="bi bi-dot"></i>
+                      <span>Shared kitchen with cooking utensils and amenities.</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-dot"></i>
+                      <span>TV Lounge with flat screen TV</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-dot"></i>
+                      <span>Relaxing sofa and coffee table area</span>
+                    </li>
+                    <li>
+                      <i class="bi bi-dot"></i>
+                      <span>Iron & Ironing board</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="properties mt-4">
+                <h6 class="fw-bold">Detail Properties</h6>
+                <div class="row g-4 mt-0">
+                  <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
+                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                      <div class="properties-info ms-3">
+                        <small>Property type</small>
+                        <span class="d-block fs-20 fw-medium mt-1">flat</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
+                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                      <div class="properties-info ms-3">
+                        <small>Rooms</small>
+                        <span class="d-block fs-20 fw-medium mt-1">04</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
+                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                      <div class="properties-info ms-3">
+                        <small>Size</small>
+                        <span class="d-block fs-20 fw-medium mt-1">70 m²</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
+                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                      <div class="properties-info ms-3">
+                        <small>Price</small>
+                        <span class="d-block fs-20 fw-medium mt-1">450 £</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
+                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                      <div class="properties-info ms-3">
+                        <small>Rental period</small>
+                        <span class="d-block fs-20 fw-medium mt-1">Unlimited</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
+                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                      <div class="properties-info ms-3">
+                        <small>Available from</small>
+                        <span class="d-block fs-20 fw-medium mt-1">ASAP</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
+                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                      <div class="properties-info ms-3">
+                        <small>Pets allowed</small>
+                        <span class="d-block fs-20 fw-medium mt-1">No</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
+                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                      <div class="properties-info ms-3">
+                        <small>Balcony</small>
+                        <span class="d-block fs-20 fw-medium mt-1">Yes</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
+                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                      <div class="properties-info ms-3">
+                        <small>Parking</small>
+                        <span class="d-block fs-20 fw-medium mt-1">Yes</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
+                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                      <div class="properties-info ms-3">
+                        <small>Price per m²</small>
+                        <span class="d-block fs-20 fw-medium mt-1">26 £</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- MAPS -->
+            <div class="maps mt-5 pb-2">
+              <div class="filter-map w-100 overflow-hidden">
+                <div class="map w-100 h-100"></div>
+              </div>
+            </div>
+            <!-- PROPERTIES -->
+            <div class="rental mt-5 pb-2">
+              <div class="section-heading">
+                <h3 class="heading3 pb-1">Related listing in London</h3>
+                <p class="section-desc mt-2">From studios to family homes — tailored to your lifestyle and budget.</p>
+              </div>
+              <div class="row row-cols-1 row-cols-md-2 g-4 mt-md-2 mt-0 pb-md-2">
+                <!-- Card -->
+                <div class="col">
+                  <div class="card card-rent" data-id="1">
+                    <div class="swiper card-thumb-swiper w-100">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <a href="rent-detail.html" class="card-thumb">
+                            <img src="./assets/image/rent/1.jpg" class="card-img-top" alt="rent1" />
+                          </a>
+                        </div>
+                        <div class="swiper-slide">
+                          <a href="rent-detail.html" class="card-thumb">
+                            <img src="./assets/image/rent/2.jpg" class="card-img-top" alt="rent2" />
+                          </a>
+                        </div>
+                        <div class="swiper-slide">
+                          <a href="rent-detail.html" class="card-thumb">
+                            <img src="./assets/image/rent/3.jpg" class="card-img-top" alt="rent3" />
+                          </a>
+                        </div>
+                      </div>
+                      <!-- Optional navigation -->
+                      <div class="swiper-button-next swiper-button-next-1"></div>
+                      <div class="swiper-button-prev swiper-button-prev-1"></div>
+                    </div>
+                    <a href="rent-detail.html" class="card-body">
+                      <div class="card-body-top d-flex align-items-center justify-content-between">
+                        <strong class="card-title heading4 text-primary">$850,000<small class="txt fs-18 fw-normal">/
+                            month</small></strong>
+                        <span class="card-wishlist btn-toggle">
+                          <i class="bi bi-heart"></i>
+                          <i class="bi bi-heart-fill"></i>
+                        </span>
+                      </div>
+                      <span class="card-desc">
+                        <i class="bi bi-geo-alt"></i>
+                        <span class="txt">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                      </span>
+                      <div class="card-info d-flex flex-wrap align-items-center">
+                        <span class="card-info-item d-flex align-items-center">
+                          <i class="ph ph-bed fs-18"></i>
+                          <span class="txt fs-18">4 Rooms</span>
+                        </span>
+                        <span class="card-info-item d-flex align-items-center">
+                          <i class="ph ph-frame-corners fs-18"></i>
+                          <span class="txt fs-18">27m²</span>
+                        </span>
+                        <span class="card-info-item d-flex align-items-center">
+                          <span class="txt fs-18">Flat</span>
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card card-rent" data-id="2">
+                    <div class="swiper card-thumb-swiper w-100">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <a href="rent-detail.html" class="card-thumb">
+                            <img src="./assets/image/rent/2.jpg" class="card-img-top" alt="rent2" />
+                          </a>
+                        </div>
+                        <div class="swiper-slide">
+                          <a href="rent-detail.html" class="card-thumb">
+                            <img src="./assets/image/rent/3.jpg" class="card-img-top" alt="rent3" />
+                          </a>
+                        </div>
+                      </div>
+                      <!-- Optional navigation -->
+                      <div class="swiper-button-next swiper-button-next-2"></div>
+                      <div class="swiper-button-prev swiper-button-prev-2"></div>
+                    </div>
+                    <a href="rent-detail.html" class="card-body">
+                      <div class="card-body-top d-flex align-items-center justify-content-between">
+                        <strong class="card-title heading4 text-primary">$850,000<small class="txt fs-18 fw-normal">/
+                            month</small></strong>
+                        <span class="card-wishlist btn-toggle active">
+                          <i class="bi bi-heart"></i>
+                          <i class="bi bi-heart-fill"></i>
+                        </span>
+                      </div>
+                      <span class="card-desc">
+                        <i class="bi bi-geo-alt"></i>
+                        <span class="txt">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                      </span>
+                      <div class="card-info d-flex flex-wrap align-items-center">
+                        <span class="card-info-item d-flex align-items-center">
+                          <i class="ph ph-bed fs-18"></i>
+                          <span class="txt fs-18">4 Rooms</span>
+                        </span>
+                        <span class="card-info-item d-flex align-items-center">
+                          <i class="ph ph-frame-corners fs-18"></i>
+                          <span class="txt fs-18">27m²</span>
+                        </span>
+                        <span class="card-info-item d-flex align-items-center">
+                          <span class="txt fs-18">Flat</span>
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card card-rent" data-id="3">
+                    <div class="swiper card-thumb-swiper w-100">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <a href="rent-detail.html" class="card-thumb">
+                            <img src="./assets/image/rent/3.jpg" class="card-img-top" alt="rent3" />
+                          </a>
+                        </div>
+                        <div class="swiper-slide">
+                          <a href="rent-detail.html" class="card-thumb">
+                            <img src="./assets/image/rent/1.jpg" class="card-img-top" alt="rent1" />
+                          </a>
+                        </div>
+                      </div>
+                      <!-- Optional navigation -->
+                      <div class="swiper-button-next swiper-button-next-3"></div>
+                      <div class="swiper-button-prev swiper-button-prev-3"></div>
+                    </div>
+                    <a href="rent-detail.html" class="card-body">
+                      <div class="card-body-top d-flex align-items-center justify-content-between">
+                        <strong class="card-title heading4 text-primary">$850,000<small class="txt fs-18 fw-normal">/
+                            month</small></strong>
+                        <span class="card-wishlist btn-toggle">
+                          <i class="bi bi-heart"></i>
+                          <i class="bi bi-heart-fill"></i>
+                        </span>
+                      </div>
+                      <span class="card-desc">
+                        <i class="bi bi-geo-alt"></i>
+                        <span class="txt">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                      </span>
+                      <div class="card-info d-flex flex-wrap align-items-center">
+                        <span class="card-info-item d-flex align-items-center">
+                          <i class="ph ph-bed fs-18"></i>
+                          <span class="txt fs-18">4 Rooms</span>
+                        </span>
+                        <span class="card-info-item d-flex align-items-center">
+                          <i class="ph ph-frame-corners fs-18"></i>
+                          <span class="txt fs-18">27m²</span>
+                        </span>
+                        <span class="card-info-item d-flex align-items-center">
+                          <span class="txt fs-18">Flat</span>
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card card-rent" data-id="4">
+                    <div class="swiper card-thumb-swiper w-100">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <a href="rent-detail.html" class="card-thumb">
+                            <img src="./assets/image/rent/1.jpg" class="card-img-top" alt="rent1" />
+                          </a>
+                        </div>
+                        <div class="swiper-slide">
+                          <a href="rent-detail.html" class="card-thumb">
+                            <img src="./assets/image/rent/2.jpg" class="card-img-top" alt="rent2" />
+                          </a>
+                        </div>
+                        <div class="swiper-slide">
+                          <a href="rent-detail.html" class="card-thumb">
+                            <img src="./assets/image/rent/3.jpg" class="card-img-top" alt="rent3" />
+                          </a>
+                        </div>
+                      </div>
+                      <!-- Optional navigation -->
+                      <div class="swiper-button-next swiper-button-next-4"></div>
+                      <div class="swiper-button-prev swiper-button-prev-4"></div>
+                    </div>
+                    <a href="rent-detail.html" class="card-body">
+                      <div class="card-body-top d-flex align-items-center justify-content-between">
+                        <strong class="card-title heading4 text-primary">$850,000<small class="txt fs-18 fw-normal">/
+                            month</small></strong>
+                        <span class="card-wishlist btn-toggle">
+                          <i class="bi bi-heart"></i>
+                          <i class="bi bi-heart-fill"></i>
+                        </span>
+                      </div>
+                      <span class="card-desc">
+                        <i class="bi bi-geo-alt"></i>
+                        <span class="txt">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                      </span>
+                      <div class="card-info d-flex flex-wrap align-items-center">
+                        <span class="card-info-item d-flex align-items-center">
+                          <i class="ph ph-bed fs-18"></i>
+                          <span class="txt fs-18">4 Rooms</span>
+                        </span>
+                        <span class="card-info-item d-flex align-items-center">
+                          <i class="ph ph-frame-corners fs-18"></i>
+                          <span class="txt fs-18">27m²</span>
+                        </span>
+                        <span class="card-info-item d-flex align-items-center">
+                          <span class="txt fs-18">Flat</span>
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <!-- End card -->
+              </div>
+              <div class="section-btn d-flex justify-content-center mt-4">
+                <a href="properties.html" class="btn-main btn-outline-dark">View More <i
+                    class="bi bi-arrow-up-right"></i></a>
+              </div>
+            </div>
+            <!-- TAGS -->
+            <div class="tags mt-5 pb-5">
+              <h3 class="heading3 pb-1">Search for related locations nearby</h3>
+              <ul class="tags-list d-flex flex-wrap gap-3">
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">London (52756)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Birmingham (13228)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Liverpool (11415)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Manchester (9937)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Leeds (6434)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Nottingham (5713)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Salford (3604)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Sheffield (3346)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Coventry (3252)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Bristol (2763)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Newcastle upon Tyne (1950)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Lincoln (1792)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Brighton (1792)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Southampton (1367)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Derby (1120)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Exeter (1043)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Cambridge (897)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Oxford (870)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Bournemouth (862)</a>
+                </li>
+                <li class="tags-item">
+                  <a href="#!" class="tags-link fs-20">Norwich (850)</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-3">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <p class="text-muted small mb-1">Per night</p>
+                <h5 class="text-primary fw-bold">$850,000</h5>
+                <p class="mb-2"><i class="bi bi-door-closed"></i> 4 Rooms &bull; <i class="bi bi-aspect-ratio"></i> 27m²
+                  &bull; Flat</p>
+                <p class="small text-success">Agreed to move forward with the landlord? Show them you're serious about
+                  renting this property. <a href="#">Learn more</a>.</p>
+                <hr>
+                <p class="mb-1"><strong>Rental Period:</strong> Unlimited</p>
+                <p class="mb-3"><strong>Available from:</strong> ASAP</p>
+                <button class="btn btn-primary w-100 mb-2">Contact landlord</button>
+              </div>
+            </div>
+
+            <div class="card mt-3 shadow-sm">
+              <div class="card-body">
+                <h6 class="fw-bold">Landlord</h6>
+                <p class="mb-1"><i class="bi bi-patch-check-fill text-success"></i> Approved by rentoverflow</p>
+                <p class="small text-muted">Last active: 6 minutes ago</p>
+                <a href="#" class="btn btn-outline-primary btn-sm w-100">About landlord credibility</a>
+              </div>
+            </div>
+
+            <div class="text-center mt-3 small text-danger">
+              <p>Any concerns about this listing? <a href="#">Report it</a> to our team.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row row-gap-4">
+          <!-- Logo + description -->
+          <div class="col-xl-3 col-md-5">
+            <a href="index.html" class="footer-logo d-flex align-items-center">
+              <img src="./assets/image/fav-primary.png" alt="Rentoverflow">
+              <strong class="txt mb-0">Rentoverflow</strong>
+            </a>
+            <p class="footer-desc">
+              Rentoverflow is not just a place to stay, but a place where every love and new journey of life begins.
+            </p>
+            <div class="footer-social d-flex">
+              <a class="footer-social-link" href="https://www.facebook.com/" target="_blank">
+                <i class="bi bi-facebook fs-5"></i>
+                <span class="blind">button social</span>
+              </a>
+              <a class="footer-social-link" href="https://www.instagram.com/" target="_blank">
+                <i class="bi bi-instagram fs-5"></i>
+                <span class="blind">button social</span>
+              </a>
+              <a class="footer-social-link" href="https://www.twitter.com/" target="_blank">
+                <i class="bi bi-twitter fs-5"></i>
+                <span class="blind">button social</span>
+              </a>
+            </div>
+          </div>
+          <!-- Column 1 -->
+          <div class="footer-nav col-xl-2 col-md-3 col-6">
+            <h6 class="fw-medium mb-0">Home</h6>
+            <ul class="list-unstyled">
+              <li><a href="#!" class="footer-nav-link">Top UK cities</a></li>
+              <li><a href="#!" class="footer-nav-link">Rental Properties</a></li>
+              <li><a href="#!" class="footer-nav-link">Popular cities</a></li>
+            </ul>
+          </div>
+          <!-- Column 2 -->
+          <div class="footer-nav col-xl-2 col-md-3 col-6">
+            <h6 class="fw-medium mb-0">About us</h6>
+            <ul class="list-unstyled">
+              <li><a href="#!" class="footer-nav-link">Contact Us</a></li>
+              <li><a href="#!" class="footer-nav-link">Terms & Conditions</a></li>
+              <li><a href="#!" class="footer-nav-link">Blog</a></li>
+            </ul>
+          </div>
+          <!-- Column 3: Newsletter -->
+          <div class="footer-newsletter col-xl-3 d-xl-block d-flex flex-column align-items-md-center">
+            <h6 class="fw-medium mb-0">Join Rentoverflow</h6>
+            <p class="footer-newsletter-desc text-muted small">Subscribe our Rentroflow to get more future Updates</p>
+            <form class="footer-newsletter-form position-relative d-flex">
+              <input type="email" class="form-control" placeholder="Email">
+              <button class="btn d-flex position-absolute top-50 translate-middle-y" type="submit">
+                <i class="ph ph-caret-right fs-20"></i>
+                <span class="blind">button form newsletter</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Moodal -->
+  <div class="modal fade" id="modalNavMobile" tabindex="-1" aria-labelledby="modalNavMobileLabel" aria-hidden="true">
+    <div class="modal-dialog modal-menu-mobile">
+      <div class="modal-content">
+        <div class="menu-mobile bg-white">
+          <div class="modal-heading d-flex align-items-center justify-content-between">
+            <!-- Logo -->
+            <a href="index.html" class="header-logo d-flex align-items-center">
+              <img src="./assets/image/fav.png" />
+              <strong class="txt ms-1 fs-20 fw-semibold">Rentoverflow</strong>
+            </a>
+            <button type="button" data-bs-dismiss="modal">
+              <i class="bi bi-x fs-24"></i>
+            </button>
+          </div>
+          <ul class="menu-mobile-nav-list">
+            <li class="menu-mobile-nav-item">
+              <h6 class="text-capitalize text-heading">Trending Pages</h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="index.html">
+                    <i class="bi bi-house-fill"></i>
+                    <span class="txt">Home</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="properties.html">
+                    <i class="bi bi-search-heart-fill"></i>
+                    <span class="txt">Search Properties</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-door-open-fill"></i>
+                    <span class="txt">New property alert</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-mobile-nav-item">
+              <h6 class="text-capitalize text-heading">About Us</h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-chat-square-quote-fill"></i>
+                    <span class="txt">Terms & Conditions</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-newspaper"></i>
+                    <span class="txt">Blog Rentoverflow</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-wechat"></i>
+                    <span class="txt">FAQ</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-mobile-nav-item nav-account">
+              <h6 class="text-capitalize text-heading">Account</h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-person-fill"></i>
+                    <span class="txt">Account Information</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-star-fill"></i>
+                    <span class="txt">User Favorites</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-journal-album"></i>
+                    <span class="txt">Manage Subscriptions</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span class="txt">Log Out</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <!-- <div class="menu-mobile-btn d-grid gap-2">
+            <button class="btn btn-primary fs-18">
+              <i class="bi bi-person-circle"></i>
+              <span class="txt ms-2">Sign in</span>
+            </button>
+            <button class="btn btn-outline-primary fs-18">
+              <i class="bi bi-person-fill-add"></i>
+              <span class="txt ms-2">Sign up</span>
+            </button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/js/libs/jquery.min.js"></script>
+  <script src="./assets/js/libs/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/libs/phosphor-icons.js"></script>
+  <script src="./assets/js/libs/leaflet.js"></script>
+  <script src="./assets/js/libs/swiper-bundle.min.js"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

@@ -98,7 +98,7 @@
 
     const handleFilterAction = function () {
         // Bắt sự kiện nút lọc
-        $('.btn-filter').each(function(){
+        $('.btn-filter').each(function () {
             $(this).on('click', function () {
                 const filters = {
                     priceMin: $(this).closest('.filter').find('.range-min').val(),
@@ -112,14 +112,14 @@
                     petMentioned: $(this).closest('.filter').find('.dropdown-pet .dropdown-item.active').attr('data-value'),
                     propertyType: $(this).closest('.filter').find('.dropdown-property .dropdown-item.active').attr('data-value'),
                 };
-    
+
                 // In ra console (hoặc xử lý ở đây)
                 console.log('Filters:', filters);
             });
         })
 
         // Bắt sự kiện nút xóa lọc
-        $('.btn-clear').each(function(){
+        $('.btn-clear').each(function () {
             $(this).on('click', function () {
                 $(this).closest('.filter').find('.range-min').val(0);
                 $(this).closest('.filter').find('.range-max').val(5000);
@@ -175,8 +175,8 @@
             // },
             loop: true,
             navigation: {
-            nextEl: ".cities-swiper-btn .swiper-button-next",
-            prevEl: ".cities-swiper-btn .swiper-button-prev",
+                nextEl: ".cities-swiper-btn .swiper-button-next",
+                prevEl: ".cities-swiper-btn .swiper-button-prev",
             },
             breakpoints: {
                 768: {
@@ -198,6 +198,23 @@
                     },
                 }
             }
+        });
+    }
+
+    const initDetailSwiper = function () {
+        var swiper = new Swiper(".swiper-images", {
+            spaceBetween: 12,
+            slidesPerView: 4,
+        });
+        var swiper2 = new Swiper(".swiper-thumb", {
+            spaceBetween: 10,
+            navigation: {
+                nextEl: ".swiper-button-next-thumb",
+                prevEl: ".swiper-button-prev-thumb",
+            },
+            thumbs: {
+                swiper: swiper,
+            },
         });
     }
 
@@ -234,9 +251,10 @@
         handlePriceRange()
         handleFilterAction()
         handleDropdownActive()
+        handleToggleBtn()
         initCardSwiper()
         initCitiesSwiper()
-        handleToggleBtn()
+        initDetailSwiper()
         handleOpenPopup()
     });
 })(window, window.jQuery);

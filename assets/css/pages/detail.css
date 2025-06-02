@@ -1,0 +1,31 @@
+/* detail */
+.rent-detail .images .swiper-thumb,
+.rent-detail .swiper-images .swiper-slide {
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.rent-detail .images .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 2 / 1;
+}
+
+.rent-detail .description .content {
+    overflow: hidden;
+    max-height: 200px;
+}
+
+.rent-detail .description .btn-toggle.active {
+    display: none;
+}
+
+.rent-detail .description .btn-toggle.active+.content {
+    max-height: unset;
+}
+
+@media screen and (max-width: 1199px) {}
+
+@media screen and (max-width: 767px) {}
