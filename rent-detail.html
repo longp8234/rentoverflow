@@ -16,7 +16,7 @@
   <link rel="shortcut icon" href="./assets/image/fav.png" type="image/x-icon">
 </head>
 
-<body>
+<body class="overflow-unset">
   <div class="wrap">
     <!-- HEADER -->
     <header class="header">
@@ -77,7 +77,7 @@
     <!-- BREADCRUMB -->
     <nav aria-label="breadcrumb">
       <div class="container">
-        <ul class="breadcrumb">
+        <ul class="breadcrumb flex-nowrap">
           <li class="breadcrumb-item">
             <a href="index.html" class="breadcrumb-link">
               Home
@@ -86,13 +86,13 @@
           <li class="breadcrumb-ic">
             <i class="ph ph-caret-right"></i>
           </li>
-          <li class="breadcrumb-item" aria-current="page">
+          <li class="breadcrumb-item text-nowrap">
             Rental Properties
           </li>
           <li class="breadcrumb-ic">
             <i class="ph ph-caret-right"></i>
           </li>
-          <li class="breadcrumb-item" aria-current="page">
+          <li class="breadcrumb-item text-nowrap text-truncate" aria-current="page">
             Maya’s Bakehouses
           </li>
         </ul>
@@ -101,13 +101,12 @@
     <div class="rent-detail">
       <div class="container">
         <div class="row">
-          <div class="col-xl-9">
-            <!-- INFO -->
+          <div class="col-xl-8">
             <div class="info pb-2">
               <h4 class="heading4 pb-2">Maya’s Bakehouses</h4>
-              <p class="d-flex align-items-center gap-1 fs-20">
+              <p class="d-flex align-items-center gap-2 fs-20">
                 <span class="bi bi-geo-alt"></span>
-                <span>Maya’s Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                <span class="text-truncate">Maya’s Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
               </p>
               <div class="images mt-4">
                 <div class="swiper swiper-thumb">
@@ -138,7 +137,7 @@
                     <span class="blind">swiper button prev</span>
                   </button>
                 </div>
-                <div class="swiper swiper-images mt-3">
+                <div class="swiper swiper-images d-none d-md-block mt-3">
                   <ul class="swiper-wrapper">
                     <li class="swiper-slide">
                       <img src="./assets/image/rent/1.jpg" alt="rent 1">
@@ -167,7 +166,7 @@
                       night</small>
                   </h3>
                   <button type="button" class="d-flex align-items-center gap-2">
-                    <span class="fs-20">Add to Favourites</span>
+                    <span class="fs-20 d-none d-md-block">Add to Favourites</span>
                     <span class="card-wishlist btn-toggle ml-1">
                       <i class="bi bi-heart"></i>
                       <i class="bi bi-heart-fill"></i>
@@ -187,11 +186,47 @@
                     <span class="txt fs-18">Flat</span>
                   </span>
                 </div>
+                <div class="d-xl-none mt-3">
+                  <p class="pb-2">Exclusive option: Above the average market price</p>
+                  <div class="progress bg-light">
+                    <div class="progress-bar bg-success" role="progressbar" aria-label="average" style="width: 100%"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-2">Agreed to move forward with the landlord? Show them that you are serious about
+                    renting this property. <a href="#!" class="fw-medium text-primary">Learn more.</a></p>
+                  <ul class="d-flex flex-wrap justify-content-between gap-3 mt-3">
+                    <li class="d-flex align-items-center gap-2">
+                      <i class="ph ph-check-circle fs-20 text-success"></i>
+                      <div>
+                        <span>Rental Period</span>
+                        <span class="fs-18 fw-medium ms-2">Unlimited</span>
+                      </div>
+                    </li>
+                    <li class="d-flex align-items-center gap-2">
+                      <i class="ph ph-check-circle fs-20 text-success"></i>
+                      <div>
+                        <span>Available from</span>
+                        <span class="fs-18 fw-medium ms-2">ASAP</span>
+                      </div>
+                    </li>
+                  </ul>
+                  <a href="#!" class="btn-main btn-primary w-100 mt-3 rounded-3 text-center">Contact landlord</a>
+                  <h4 class="heading4 text-primary mt-3">Landlord</h4>
+                  <p class="d-flex align-items-center gap-2 mt-3">
+                    <i class="ph ph-shield-check"></i>
+                    <span class="fs-18 ms-1">Approved by rentoverflow</span>
+                  </p>
+                  <p class="d-flex align-items-center gap-2 mt-3 mb-4">
+                    <i class="ph ph-clock"></i>
+                    <span class="fs-18 ms-1">Last active: 6 minutes ago</span>
+                  </p>
+                </div>
               </div>
+              <p class="d-xl-none text-primary mt-3 pt-3 border-top border-light">About landlord credibility</p>
               <div class="description d-flex flex-column-reverse gap-2 mt-4">
-                <a href="#" class="text-primary fw-medium btn-toggle d-inline">Read more...</a>
+                <a href="#" class="text-primary fw-medium btn-toggle">Read more...</a>
                 <div class="content">
-                  <h5 class="heading5">Fawcett Street, Chelsea</h5>
+                  <h4 class="heading4">Fawcett Street, Chelsea</h4>
                   <p class="fs-20 pt-1">Welcome to Townhouse @ Newlands Street Stoke, brought to you by Stoke Rooms &
                     Suites. The Co-Living experience you have been searching for! <br>The rental:<br>Move into your new
                     vibrant modern room in Stoke within 48 hours
@@ -248,108 +283,111 @@
                 </div>
               </div>
               <div class="properties mt-4">
-                <h6 class="fw-bold">Detail Properties</h6>
-                <div class="row g-4 mt-0">
-                  <div class="col-6 col-md-3">
-                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
-                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                <h4 class="heading4">Detail Properties</h4>
+                <div class="properties-list row row-gap-3 row-gap-xl-4 mt-3 mt-xl-0">
+                  <div class="properties-item col-6 col-md-3">
+                    <div class="inner d-flex align-items-center h-100 w-100 p-3 border rounded-3">
+                      <i class="ph-bold ph-building fs-24 text-primary"></i>
                       <div class="properties-info ms-3">
-                        <small>Property type</small>
-                        <span class="d-block fs-20 fw-medium mt-1">flat</span>
+                        <span class="cate">Property type</span>
+                        <span class="tit d-block fs-20 fw-medium mt-1">Flat</span>
                       </div>
                     </div>
                   </div>
-                  <div class="col-6 col-md-3">
-                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
-                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                  <div class="properties-item col-6 col-md-3">
+                    <div class="inner d-flex align-items-center h-100 w-100 p-3 border rounded-3">
+                      <i class="ph-bold ph-bed fs-24 text-primary"></i>
                       <div class="properties-info ms-3">
-                        <small>Rooms</small>
-                        <span class="d-block fs-20 fw-medium mt-1">04</span>
+                        <span class="cate">Rooms</span>
+                        <span class="tit d-block fs-20 fw-medium mt-1">04</span>
                       </div>
                     </div>
                   </div>
-                  <div class="col-6 col-md-3">
-                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
-                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                  <div class="properties-item col-6 col-md-3">
+                    <div class="inner d-flex align-items-center h-100 w-100 p-3 border rounded-3">
+                      <i class="ph-bold ph-frame-corners fs-24 text-primary"></i>
                       <div class="properties-info ms-3">
-                        <small>Size</small>
-                        <span class="d-block fs-20 fw-medium mt-1">70 m²</span>
+                        <span class="cate">Size</span>
+                        <span class="tit d-block fs-20 fw-medium mt-1">70 m²</span>
                       </div>
                     </div>
                   </div>
-                  <div class="col-6 col-md-3">
-                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
-                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                  <div class="properties-item col-6 col-md-3">
+                    <div class="inner d-flex align-items-center h-100 w-100 p-3 border rounded-3">
+                      <i class="ph-bold ph-currency-circle-dollar fs-24 text-primary"></i>
                       <div class="properties-info ms-3">
-                        <small>Price</small>
-                        <span class="d-block fs-20 fw-medium mt-1">450 £</span>
+                        <span class="cate">Price</span>
+                        <span class="tit d-block fs-20 fw-medium mt-1">450 £</span>
                       </div>
                     </div>
                   </div>
-                  <div class="col-6 col-md-3">
-                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
-                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                  <div class="properties-item col-6 col-md-3">
+                    <div class="inner d-flex align-items-center h-100 w-100 p-3 border rounded-3">
+                      <i class="ph-bold ph-ruler fs-24 text-primary"></i>
                       <div class="properties-info ms-3">
-                        <small>Rental period</small>
-                        <span class="d-block fs-20 fw-medium mt-1">Unlimited</span>
+                        <span class="cate">Rental period</span>
+                        <span class="tit d-block fs-20 fw-medium mt-1">Unlimited</span>
                       </div>
                     </div>
                   </div>
-                  <div class="col-6 col-md-3">
-                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
-                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                  <div class="properties-item col-6 col-md-3">
+                    <div class="inner d-flex align-items-center h-100 w-100 p-3 border rounded-3">
+                      <i class="ph-bold ph-calendar fs-24 text-primary"></i>
                       <div class="properties-info ms-3">
-                        <small>Available from</small>
-                        <span class="d-block fs-20 fw-medium mt-1">ASAP</span>
+                        <span class="cate">Available from</span>
+                        <span class="tit d-block fs-20 fw-medium mt-1">ASAP</span>
                       </div>
                     </div>
                   </div>
-                  <div class="col-6 col-md-3">
-                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
-                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                  <div class="properties-item col-6 col-md-3">
+                    <div class="inner d-flex align-items-center h-100 w-100 p-3 border rounded-3">
+                      <i class="ph-bold ph-paw-print fs-24 text-primary"></i>
                       <div class="properties-info ms-3">
-                        <small>Pets allowed</small>
-                        <span class="d-block fs-20 fw-medium mt-1">No</span>
+                        <span class="cate">Pets allowed</span>
+                        <span class="tit d-block fs-20 fw-medium mt-1">No</span>
                       </div>
                     </div>
                   </div>
-                  <div class="col-6 col-md-3">
-                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
-                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                  <div class="properties-item col-6 col-md-3">
+                    <div class="inner d-flex align-items-center h-100 w-100 p-3 border rounded-3">
+                      <i class="ph-bold ph-door-open fs-24 text-primary"></i>
                       <div class="properties-info ms-3">
-                        <small>Balcony</small>
-                        <span class="d-block fs-20 fw-medium mt-1">Yes</span>
+                        <span class="cate">Balcony</span>
+                        <span class="tit d-block fs-20 fw-medium mt-1">Yes</span>
                       </div>
                     </div>
                   </div>
-                  <div class="col-6 col-md-3">
-                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
-                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                  <div class="properties-item col-6 col-md-3">
+                    <div class="inner d-flex align-items-center h-100 w-100 p-3 border rounded-3">
+                      <i class="ph-bold ph-letter-circle-p fs-24 text-primary"></i>
                       <div class="properties-info ms-3">
-                        <small>Parking</small>
-                        <span class="d-block fs-20 fw-medium mt-1">Yes</span>
+                        <span class="cate">Parking</span>
+                        <span class="tit d-block fs-20 fw-medium mt-1">Yes</span>
                       </div>
                     </div>
                   </div>
-                  <div class="col-6 col-md-3">
-                    <div class="d-flex align-items-center h-100 w-100 p-3 border rounded mb-1">
-                      <i class="bi bi-building flex-shrink-0 fs-24 text-primary"></i>
+                  <div class="properties-item col-6 col-md-3">
+                    <div class="inner d-flex align-items-center h-100 w-100 p-3 border rounded-3">
+                      <i class="ph-bold ph-money fs-24 text-primary"></i>
                       <div class="properties-info ms-3">
-                        <small>Price per m²</small>
-                        <span class="d-block fs-20 fw-medium mt-1">26 £</span>
+                        <span class="cate">Price per m²</span>
+                        <span class="tit d-block fs-20 fw-medium mt-1">26 £</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- MAPS -->
             <div class="maps mt-5 pb-2">
               <div class="filter-map w-100 overflow-hidden">
                 <div class="map w-100 h-100"></div>
               </div>
             </div>
-            <!-- PROPERTIES -->
+            <div class="d-xl-none text-center mt-3">
+              <p><i class="ph ph-warning pe-1"></i> Any concerns about this listing? <br>
+                <a href="#!" class="fw-medium text-danger">Report it</a> to our team.
+              </p>
+            </div>
             <div class="rental mt-5 pb-2">
               <div class="section-heading">
                 <h3 class="heading3 pb-1">Related listing in London</h3>
@@ -566,8 +604,7 @@
                     class="bi bi-arrow-up-right"></i></a>
               </div>
             </div>
-            <!-- TAGS -->
-            <div class="tags mt-5 pb-5">
+            <div class="tags mt-5 pb-xl-5">
               <h3 class="heading3 pb-1">Search for related locations nearby</h3>
               <ul class="tags-list d-flex flex-wrap gap-3">
                 <li class="tags-item">
@@ -633,33 +670,70 @@
               </ul>
             </div>
           </div>
-          <div class="col-xl-3">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <p class="text-muted small mb-1">Per night</p>
-                <h5 class="text-primary fw-bold">$850,000</h5>
-                <p class="mb-2"><i class="bi bi-door-closed"></i> 4 Rooms &bull; <i class="bi bi-aspect-ratio"></i> 27m²
-                  &bull; Flat</p>
-                <p class="small text-success">Agreed to move forward with the landlord? Show them you're serious about
-                  renting this property. <a href="#">Learn more</a>.</p>
-                <hr>
-                <p class="mb-1"><strong>Rental Period:</strong> Unlimited</p>
-                <p class="mb-3"><strong>Available from:</strong> ASAP</p>
-                <button class="btn btn-primary w-100 mb-2">Contact landlord</button>
+          <div class="col-xl-4 d-xl-block position-sticky d-none">
+            <div class="detail-sidebar">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <p class="text-muted small mb-1">Per night</p>
+                  <h3 class="heading3 text-primary mt-1 pb-2">$850,000</h3>
+                  <div class="card-info d-flex flex-wrap align-items-center">
+                    <span class="card-info-item d-flex align-items-center">
+                      <i class="ph ph-bed fs-18"></i>
+                      <span class="txt fs-18">4 Rooms</span>
+                    </span>
+                    <span class="card-info-item d-flex align-items-center">
+                      <i class="ph ph-frame-corners fs-18"></i>
+                      <span class="txt fs-18">27m²</span>
+                    </span>
+                    <span class="card-info-item d-flex align-items-center">
+                      <span class="txt fs-18">Flat</span>
+                    </span>
+                  </div>
+                  <p class="fs-18 mt-4 pb-3">Exclusive option: Above the average market price</p>
+                  <div class="progress bg-light">
+                    <div class="progress-bar bg-success" role="progressbar" aria-label="average" style="width: 100%"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="fs-18 mt-3">Agreed to move forward with the landlord? Show them that you are serious about
+                    renting this property. <a href="#!" class="fw-medium text-primary">Learn more.</a></p>
+                  <ul class="d-flex flex-wrap justify-content-between gap-3 mt-4 pt-4 border-top border-light">
+                    <li class="d-flex gap-2">
+                      <i class="ph ph-check-circle fs-20 text-success"></i>
+                      <div>
+                        <span>Rental Period</span>
+                        <span class="d-block fs-20 fw-medium mt-1">Unlimited</span>
+                      </div>
+                    </li>
+                    <li class="d-flex gap-2">
+                      <i class="ph ph-check-circle fs-20 text-success"></i>
+                      <div>
+                        <span>Available from</span>
+                        <span class="d-block fs-20 fw-medium mt-1">ASAP</span>
+                      </div>
+                    </li>
+                  </ul>
+                  <a href="#!" class="btn-main btn-primary w-100 mt-4 rounded-3 text-center">Contact landlord</a>
+                </div>
               </div>
-            </div>
-
-            <div class="card mt-3 shadow-sm">
-              <div class="card-body">
-                <h6 class="fw-bold">Landlord</h6>
-                <p class="mb-1"><i class="bi bi-patch-check-fill text-success"></i> Approved by rentoverflow</p>
-                <p class="small text-muted">Last active: 6 minutes ago</p>
-                <a href="#" class="btn btn-outline-primary btn-sm w-100">About landlord credibility</a>
+              <div class="card mt-4 shadow-sm">
+                <div class="card-body">
+                  <h4 class="heading4 text-primary">Landlord</h4>
+                  <p class="d-flex align-items-center gap-2 mt-4">
+                    <i class="ph ph-shield-check"></i>
+                    <span class="fs-18 ms-1">Approved by rentoverflow</span>
+                  </p>
+                  <p class="d-flex align-items-center gap-2 mt-4 mb-4 pb-4 border-bottom border-light">
+                    <i class="ph ph-clock"></i>
+                    <span class="fs-18 ms-1">Last active: 6 minutes ago</span>
+                  </p>
+                  <a href="#" class="d-block fs-18 fw-medium text-primary text-center">About landlord credibility</a>
+                </div>
               </div>
-            </div>
-
-            <div class="text-center mt-3 small text-danger">
-              <p>Any concerns about this listing? <a href="#">Report it</a> to our team.</p>
+              <div class="text-center mt-4">
+                <p><i class="ph ph-warning pe-1"></i> Any concerns about this listing? <br>
+                  <a href="#!" class="fw-medium text-danger">Report it</a> to our team.
+                </p>
+              </div>
             </div>
           </div>
         </div>

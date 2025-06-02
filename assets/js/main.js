@@ -207,7 +207,7 @@
             slidesPerView: 4,
         });
         var swiper2 = new Swiper(".swiper-thumb", {
-            spaceBetween: 10,
+            spaceBetween: 0,
             navigation: {
                 nextEl: ".swiper-button-next-thumb",
                 prevEl: ".swiper-button-prev-thumb",

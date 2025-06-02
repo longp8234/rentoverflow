@@ -29,6 +29,10 @@ body {
     overflow-x: hidden;
 }
 
+body.overflow-unset {
+    overflow: unset;
+}
+
 body.scroll-locked {
     overflow: hidden;
 }
