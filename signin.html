@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rentoverflow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./assets/css/font.css">
+  <link rel="stylesheet" href="./assets/css/libs/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/libs/bootstrap-icons.css">
+  <link rel="stylesheet" href="./assets/css/libs/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./assets/css/libs/leaflet.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="shortcut icon" href="./assets/image/fav.png" type="image/x-icon">
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container d-flex justify-content-between align-items-center flex-md-row flex-row-reverse h-100">
+        <div class="header-inner d-flex align-items-center">
+          <!-- Logo -->
+          <a href="index.html" class="header-logo d-flex align-items-center">
+            <img src="./assets/image/fav.png" />
+            <strong class="txt ms-1 fs-20 fw-semibold d-lg-block d-sm-none">Rentoverflow</strong>
+          </a>
+          <!-- Search + New Property -->
+          <div class="search-box d-md-flex d-none align-items-center rounded-pill">
+            <i class="ph ph-magnifying-glass fs-20"></i>
+            <input type="text" class="input-box w-100" placeholder="City, area or neighborhood">
+          </div>
+          <button class="header-alert d-md-block d-none fw-medium">New property alert</button>
+        </div>
+        <!-- Sign In -->
+        <button class="btn-menu d-xl-none" type="button" data-bs-toggle="modal" data-bs-target="#modalNavMobile">
+          <i class="bi bi-justify-right fs-20"></i>
+        </button>
+        <div class="header-dropdown d-none d-xl-block">
+          <div class="header-signin">
+            <button class="btn d-flex align-items-center rounded-pill" id="signinMenu" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <span class="txt fs-18 fw-medium">Sign in</span>
+              <i class="bi bi-person-fill"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow px-2 py-4" aria-labelledby="signinMenu">
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="signin.html"><i
+                    class="bi bi-person-circle text-primary"></i> Sign in</a></li>
+              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18 mt-2" href="signup.html"><i
+                    class="bi bi-person-fill-add text-primary"></i> Sign up</a></li>
+              <li class="mt-2 pt-2 border-top"><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i
+                    class="bi bi-wechat text-primary"></i> FAQ</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Sign In Form -->
+    <div class="signin-form">
+      <div class="container d-flex justify-content-center">
+        <div class="card shadow-sm" style="width: 100%; max-width: 472px; border-radius: 24px;">
+          <h5 class="text-md-center fs-20 fw-semibold mb-1">Sign in with Account</h5>
+          <p class="text-md-center pb-4">
+            Explore thousands of properties that suit you<br>Sign in to get started.
+          </p>
+          <form class="form mt-2">
+            <!-- Email -->
+            <div class="pb-2">
+              <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+              <input type="email" class="form-control rounded-3" id="email" placeholder="Email" required>
+            </div>
+            <!-- Password -->
+            <div class="pb-2 mt-1">
+              <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+              <div class="position-relative">
+                <input type="password" class="form-control rounded-3 js-input-pw" id="password"
+                  placeholder="Enter password" required>
+                <button class="input-group-btn position-absolute top-50 translate-middle-y end-0 me-3 js-btn-toggle-pw"
+                  type="button">
+                  <i class="bi bi-eye-slash js-ic-toggle-pw"></i>
+                  <span class="blind">button show password</span>
+                </button>
+              </div>
+            </div>
+            <!-- Remember & Forgot -->
+            <div class="d-flex justify-content-between align-items-center mt-1 pb-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="remember">
+                <label class="form-check-label" for="remember">Remember</label>
+              </div>
+              <a href="#!" class="text-primary">Forgot password?</a>
+            </div>
+            <!-- Sign In Button -->
+            <div class="d-grid mt-4 pb-2">
+              <button class="btn btn-primary fs-18 rounded-3" type="submit">Sign in</button>
+            </div>
+            <!-- Google Sign In -->
+            <div class="d-grid mt-1 pb-2">
+              <button
+                class="btn btn-light border text-dark fs-18 d-flex align-items-center justify-content-center gap-2 rounded-3"
+                type="button">
+                <img src="./assets/image/ic-gg.png" alt="Google">
+                Sign in with Google
+              </button>
+            </div>
+            <!-- Sign Up -->
+            <p class="text-center mb-0 mt-4">
+              Don’t have an account? <a href="signup.html" class="fw-semibold text-primary ms-1">Sign up</a>
+            </p>
+          </form>
+        </div>
+        <div class="card shadow-sm" style="width: 100%; max-width: 472px; border-radius: 24px;"></div>
+      </div>
+    </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row row-gap-4">
+          <!-- Logo + description -->
+          <div class="col-xl-3 col-md-5">
+            <a href="index.html" class="footer-logo d-flex align-items-center">
+              <img src="./assets/image/fav-primary.png" alt="Rentoverflow">
+              <strong class="txt mb-0">Rentoverflow</strong>
+            </a>
+            <p class="footer-desc">
+              Rentoverflow is not just a place to stay, but a place where every love and new journey of life begins.
+            </p>
+            <div class="footer-social d-flex">
+              <a class="footer-social-link" href="https://www.facebook.com/" target="_blank">
+                <i class="bi bi-facebook fs-5"></i>
+                <span class="blind">button social</span>
+              </a>
+              <a class="footer-social-link" href="https://www.instagram.com/" target="_blank">
+                <i class="bi bi-instagram fs-5"></i>
+                <span class="blind">button social</span>
+              </a>
+              <a class="footer-social-link" href="https://www.twitter.com/" target="_blank">
+                <i class="bi bi-twitter fs-5"></i>
+                <span class="blind">button social</span>
+              </a>
+            </div>
+          </div>
+          <!-- Column 1 -->
+          <div class="footer-nav col-xl-2 col-md-3 col-6">
+            <h6 class="fw-medium mb-0">Home</h6>
+            <ul class="list-unstyled">
+              <li><a href="#!" class="footer-nav-link">Top UK cities</a></li>
+              <li><a href="#!" class="footer-nav-link">Rental Properties</a></li>
+              <li><a href="#!" class="footer-nav-link">Popular cities</a></li>
+            </ul>
+          </div>
+          <!-- Column 2 -->
+          <div class="footer-nav col-xl-2 col-md-3 col-6">
+            <h6 class="fw-medium mb-0">About us</h6>
+            <ul class="list-unstyled">
+              <li><a href="#!" class="footer-nav-link">Contact Us</a></li>
+              <li><a href="#!" class="footer-nav-link">Terms & Conditions</a></li>
+              <li><a href="#!" class="footer-nav-link">Blog</a></li>
+            </ul>
+          </div>
+          <!-- Column 3: Newsletter -->
+          <div class="footer-newsletter col-xl-3 d-xl-block d-flex flex-column align-items-md-center">
+            <h6 class="fw-medium mb-0">Join Rentoverflow</h6>
+            <p class="footer-newsletter-desc text-muted small">Subscribe our Rentroflow to get more future Updates</p>
+            <form class="footer-newsletter-form position-relative d-flex">
+              <input type="email" class="form-control" placeholder="Email">
+              <button class="btn d-flex position-absolute top-50 translate-middle-y" type="submit">
+                <i class="ph ph-caret-right fs-20"></i>
+                <span class="blind">button form newsletter</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Moodal -->
+  <div class="modal fade" id="modalNavMobile" tabindex="-1" aria-labelledby="modalNavMobileLabel" aria-hidden="true">
+    <div class="modal-dialog modal-menu-mobile">
+      <div class="modal-content">
+        <div class="menu-mobile bg-white">
+          <div class="modal-heading d-flex align-items-center justify-content-between">
+            <!-- Logo -->
+            <a href="index.html" class="header-logo d-flex align-items-center">
+              <img src="./assets/image/fav.png" />
+              <strong class="txt ms-1 fs-20 fw-semibold">Rentoverflow</strong>
+            </a>
+            <button type="button" data-bs-dismiss="modal">
+              <i class="bi bi-x fs-24"></i>
+            </button>
+          </div>
+          <ul class="menu-mobile-nav-list">
+            <li class="menu-mobile-nav-item">
+              <h6 class="text-capitalize text-heading">Trending Pages</h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18 active" href="index.html">
+                    <i class="bi bi-house-fill"></i>
+                    <span class="txt">Home</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="properties.html">
+                    <i class="bi bi-search-heart-fill"></i>
+                    <span class="txt">Search Properties</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-door-open-fill"></i>
+                    <span class="txt">New property alert</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-mobile-nav-item">
+              <h6 class="text-capitalize text-heading">About Us</h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-chat-square-quote-fill"></i>
+                    <span class="txt">Terms & Conditions</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-newspaper"></i>
+                    <span class="txt">Blog Rentoverflow</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-wechat"></i>
+                    <span class="txt">FAQ</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="menu-mobile-btn d-grid gap-2">
+            <button class="btn btn-primary fs-18">
+              <i class="bi bi-person-circle"></i>
+              <span class="txt ms-2">Sign in</span>
+            </button>
+            <button class="btn btn-outline-primary fs-18">
+              <i class="bi bi-person-fill-add"></i>
+              <span class="txt ms-2">Sign up</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/js/libs/jquery.min.js"></script>
+  <script src="./assets/js/libs/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/libs/phosphor-icons.js"></script>
+  <script src="./assets/js/libs/leaflet.js"></script>
+  <script src="./assets/js/libs/swiper-bundle.min.js"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

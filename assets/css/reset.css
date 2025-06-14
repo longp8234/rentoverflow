@@ -49,12 +49,15 @@ legend {
 }
 
 select,
-input,
-input:focus {
+input {
     border: none;
     outline: none;
     appearance: none;
     background-color: transparent;
+}
+
+input:focus {
+    outline: none;
 }
 
 input {

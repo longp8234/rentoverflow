@@ -218,6 +218,21 @@
         });
     }
 
+    const showPassword = function () {
+        $('.js-btn-toggle-pw').on('click', function () {
+            const passwordInput = $(this).parent().find('.js-input-pw');
+            const icon = $(this).find('.js-ic-toggle-pw');
+
+            // toggle type
+            const type = passwordInput.attr('type') === 'password' ? 'text' : 'password';
+            passwordInput.attr('type', type);
+
+            // toggle icon
+            icon.toggleClass('bi-eye-slash bi-eye');
+        });
+    }
+
+
     // Open popup
     const handleOpenPopup = function () {
         const btnOpenPopup = $('.btn')
@@ -255,6 +270,7 @@
         initCardSwiper()
         initCitiesSwiper()
         initDetailSwiper()
+        showPassword()
         handleOpenPopup()
     });
 })(window, window.jQuery);
