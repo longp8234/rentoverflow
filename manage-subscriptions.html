@@ -97,13 +97,12 @@
               </div>
               <ul class="profile-nav-list d-flex flex-column gap-2 mt-4 pt-4 border-top border-light">
                 <li>
-                  <a class="profile-nav-link d-flex align-items-center gap-2 fs-18 rounded-3 active"
-                    href="profile.html">
+                  <a class="profile-nav-link d-flex align-items-center gap-2 fs-18 rounded-3" href="profile.html">
                     <i class="bi bi-person-fill text-primary"></i> Account Information
                   </a>
                 </li>
                 <li>
-                  <a class="profile-nav-link d-flex align-items-center gap-2 fs-18 rounded-3"
+                  <a class="profile-nav-link d-flex align-items-center gap-2 fs-18 rounded-3 active"
                     href="manage-subscriptions.html">
                     <i class="bi bi-award-fill text-primary"></i> Manage Subscriptions
                   </a>
@@ -131,49 +130,81 @@
           </div>
           <!-- Main Content -->
           <div class="col-xl-9 p-xl-4 profile-info">
-            <h5 class="heading4 mb-1">Personal Information</h5>
-            <p class="mb-0 text-secondary">Kindly update your personal information to help us serve you more
-              efficiently.</p>
+            <h5 class="heading4 mb-1">Subscription Details</h5>
+            <p class="mb-0 text-secondary">Plan type, duration, price, and benefits.</p>
             <form class="form mt-4">
               <div class="card p-4 rounded-4 border-light shadow-sm">
                 <div class="row row-gap-4 mb-4">
                   <div class="col-xl-6">
-                    <label class="form-label">Name</label>
-                    <input type="text" class="form-control rounded-3" value="Serena" />
-                  </div>
-                  <div class="col-xl-6">
-                    <label class="form-label">Surname</label>
-                    <input type="text" class="form-control rounded-3" value="Seraphina" />
-                  </div>
-                </div>
-                <div class="row row-gap-4 mb-4">
-                  <div class="col-xl-6">
-                    <label class="form-label">Phone number</label>
-                    <input type="text" class="form-control rounded-3" value="0912345678" />
-                  </div>
-                  <div class="col-xl-6">
-                    <label class="form-label">Email</label>
+                    <label class="form-label">Your package</label>
                     <div class="position-relative">
-                      <input type="email" class="form-control input-email rounded-3"
-                        value="serenaseraphina@gmail.com" />
-                      <span class="input-group-btn text-success position-absolute top-50 translate-middle-y end-0 me-3">
-                        <i class="bi bi-check-circle"></i>
-                        <span class="txt d-none d-md-inline-block">Verified</span>
+                      <input type="text" class="form-control rounded-3 ps-5" />
+                      <span class="input-group-btn position-absolute top-50 translate-middle-y start-0 ms-3">
+                        <i class="bi bi-dash"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-xl-6">
+                    <label class="form-label">Next renewal</label>
+                    <div class="position-relative">
+                      <input type="text" class="form-control rounded-3 ps-5" />
+                      <span class="input-group-btn position-absolute top-50 translate-middle-y start-0 ms-3">
+                        <i class="bi bi-dash"></i>
                       </span>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <label class="form-label">Address</label>
-                  <input type="text" class="form-control rounded-3"
-                    value="Maya’s Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom" />
+                  <label class="form-label">Email</label>
+                  <div class="position-relative">
+                    <input type="email" class="form-control input-email rounded-3" value="serenaseraphina@gmail.com" />
+                    <span class="input-group-btn text-success position-absolute top-50 translate-middle-y end-0 me-3">
+                      <i class="bi bi-check-circle"></i>
+                      <span class="txt d-none d-md-inline-block">Verified</span>
+                    </span>
+                  </div>
                 </div>
               </div>
               <div class="form-btn d-flex flex-wrap align-items-center justify-content-end gap-3 w-100 mt-4">
-                <button class="btn btn-light" type="button">Discard Changes</button>
-                <button class="btn btn-primary" type="submit">Change Information</button>
+                <button class="btn btn-primary" type="submit">Get Subscription</button>
               </div>
             </form>
+            <h5 class="heading4 mb-1 mt-4">Premium Subscription</h5>
+            <p class="mb-2 text-secondary">Try Premium Subscription to activate features!</p>
+            <ul class="row row-gap-4 mt-4 mb-4">
+              <li class="col-md-6">
+                <div
+                  class="feature d-flex flex-md-column align-items-center h-100 p-4 bg-white border border-light rounded-3 shadow-sm">
+                  <i class="feature-ic bi bi-house-add-fill text-primary"></i>
+                  <p class="feature-desc px-4 fs-18 mt-2 text-md-center">Get notified when new properties are available
+                  </p>
+                </div>
+              </li>
+              <li class="col-md-6">
+                <div
+                  class="feature d-flex flex-md-column align-items-center h-100 p-4 bg-white border border-light rounded-3 shadow-sm">
+                  <i class="feature-ic bi bi-search-heart text-primary"></i>
+                  <p class="feature-desc px-4 fs-18 mt-2 text-md-center">Browse properties from many sources in one
+                    simple search</p>
+                </div>
+              </li>
+              <li class="col-md-6">
+                <div
+                  class="feature d-flex flex-md-column align-items-center h-100 p-4 bg-white border border-light rounded-3 shadow-sm">
+                  <i class="feature-ic bi bi-postcard-heart-fill text-primary"></i>
+                  <p class="feature-desc px-4 fs-18 mt-2 text-md-center">Access exclusive listings only found on our
+                    platform.</p>
+                </div>
+              </li>
+              <li class="col-md-6">
+                <div
+                  class="feature d-flex flex-md-column align-items-center h-100 p-4 bg-white border border-light rounded-3 shadow-sm">
+                  <i class="feature-ic bi bi-person-lines-fill text-primary"></i>
+                  <p class="feature-desc px-4 fs-18 mt-2 text-md-center">You can contact all landlords in the database
+                    immediately</p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
