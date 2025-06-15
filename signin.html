@@ -46,12 +46,21 @@
               <i class="bi bi-person-fill"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-end shadow px-2 py-4" aria-labelledby="signinMenu">
-              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="signin.html"><i
-                    class="bi bi-person-circle text-primary"></i> Sign in</a></li>
-              <li><a class="item d-flex align-items-center gap-2 p-2 fs-18 mt-2" href="signup.html"><i
-                    class="bi bi-person-fill-add text-primary"></i> Sign up</a></li>
-              <li class="mt-2 pt-2 border-top"><a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!"><i
-                    class="bi bi-wechat text-primary"></i> FAQ</a></li>
+              <li>
+                <a class="item d-flex align-items-center gap-2 p-2 fs-18" href="signin.html">
+                  <i class="bi bi-person-circle text-primary"></i> Sign in
+                </a>
+              </li>
+              <li>
+                <a class="item d-flex align-items-center gap-2 p-2 fs-18 mt-2" href="signup.html">
+                  <i class="bi bi-person-fill-add text-primary"></i> Sign up
+                </a>
+              </li>
+              <li class="mt-2 pt-2 border-top">
+                <a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!">
+                  <i class="bi bi-wechat text-primary"></i> FAQ
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -79,7 +88,7 @@
                   placeholder="Enter password" required>
                 <button class="input-group-btn position-absolute top-50 translate-middle-y end-0 me-3 js-btn-toggle-pw"
                   type="button">
-                  <i class="bi bi-eye-slash js-ic-toggle-pw"></i>
+                  <i class="bi bi-eye-slash ic-eye js-ic-toggle-pw"></i>
                   <span class="blind">button show password</span>
                 </button>
               </div>
@@ -111,7 +120,6 @@
             </p>
           </form>
         </div>
-        <div class="card shadow-sm" style="width: 100%; max-width: 472px; border-radius: 24px;"></div>
       </div>
     </div>
     <!-- FOOTER -->
@@ -177,7 +185,7 @@
     </footer>
   </div>
 
-  <!-- Moodal -->
+  <!-- Modal -->
   <div class="modal fade" id="modalNavMobile" tabindex="-1" aria-labelledby="modalNavMobileLabel" aria-hidden="true">
     <div class="modal-dialog modal-menu-mobile">
       <div class="modal-content">
@@ -241,14 +249,15 @@
             </li>
           </ul>
           <div class="menu-mobile-btn d-grid gap-2">
-            <button class="btn btn-primary fs-18">
+            <a href="signin.html" class="btn btn-primary d-flex align-items-center justify-content-center fs-18">
               <i class="bi bi-person-circle"></i>
               <span class="txt ms-2">Sign in</span>
-            </button>
-            <button class="btn btn-outline-primary fs-18">
+            </a>
+            <a href="signup.html"
+              class="btn btn-outline-primary d-flex align-items-center justify-content-center fs-18">
               <i class="bi bi-person-fill-add"></i>
               <span class="txt ms-2">Sign up</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

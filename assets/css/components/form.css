@@ -1,3 +1,4 @@
+/* form login */
 .signin-form {
     margin: 100px 0 150px;
 }
@@ -27,19 +28,23 @@
     padding-left: 6px;
 }
 
-input.form-control {
+.form input.form-control {
     height: 56px;
     padding: 12px;
     border: 1px solid var(--line);
 }
 
-input.form-control::placeholder {
+.form input.form-control::placeholder {
     color: #CBD4E1;
 }
 
-input.form-control:focus,
-input.form-control:active {
+.form input.form-control:focus,
+.form input.form-control:active {
     border-color: var(--black);
+}
+
+.form .input-group-btn .ic-eye {
+    display: none;
 }
 
 .form .btn {
@@ -55,5 +60,9 @@ input.form-control:active {
         padding: 0;
         border: none;
         box-shadow: none !important;
+    }
+
+    .form .btn img {
+        width: 24px;
     }
 }

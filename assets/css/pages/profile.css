@@ -1,0 +1,35 @@
+/* properties */
+.profile {
+  margin: 40px 0 120px;
+}
+
+.profile-avt {
+  overflow: hidden;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.profile-nav-link {
+  padding: 10px 8px;
+  transition: all .3s ease;
+}
+
+.profile-nav-link:hover {
+  background: #E5F0FF;
+}
+
+.profile-nav-link.text-danger:hover {
+  background: #FFF2F2;
+}
+
+.profile-nav-link.active {
+  background: #E5F0FF;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+@media screen and (max-width: 1199px) {}
+
+@media screen and (max-width: 767px) {}

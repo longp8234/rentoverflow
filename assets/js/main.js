@@ -219,6 +219,16 @@
     }
 
     const showPassword = function () {
+        $('.js-input-pw').on('input', function () {
+            const icon = $(this).parent().find('.js-ic-toggle-pw');
+
+            if ($(this).val() !== '') {
+                icon.show()
+            } else {
+                icon.hide()
+            }
+        })
+
         $('.js-btn-toggle-pw').on('click', function () {
             const passwordInput = $(this).parent().find('.js-input-pw');
             const icon = $(this).find('.js-ic-toggle-pw');
