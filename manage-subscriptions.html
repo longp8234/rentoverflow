@@ -102,15 +102,15 @@
                   </a>
                 </li>
                 <li>
-                  <a class="profile-nav-link d-flex align-items-center gap-2 fs-18 rounded-3 active"
-                    href="manage-subscriptions.html">
-                    <i class="bi bi-award-fill text-primary"></i> Manage Subscriptions
-                  </a>
-                </li>
-                <li>
                   <a class="profile-nav-link d-flex align-items-center gap-2 fs-18 rounded-3"
                     href="user-favourites.html">
                     <i class="bi bi-star-fill text-primary"></i> User Favorites
+                  </a>
+                </li>
+                <li>
+                  <a class="profile-nav-link d-flex align-items-center gap-2 fs-18 rounded-3 active"
+                    href="manage-subscriptions.html">
+                    <i class="bi bi-award-fill text-primary"></i> Manage Subscriptions
                   </a>
                 </li>
                 <li>
@@ -129,25 +129,25 @@
             </div>
           </div>
           <!-- Main Content -->
-          <div class="col-xl-9 p-xl-4 profile-info">
+          <div class="col-xl-9 profile-info">
             <h5 class="heading4 mb-1">Subscription Details</h5>
             <p class="mb-0 text-secondary">Plan type, duration, price, and benefits.</p>
             <form class="form mt-4">
               <div class="card p-4 rounded-4 border-light shadow-sm">
                 <div class="row row-gap-4 mb-4">
                   <div class="col-xl-6">
-                    <label class="form-label">Your package</label>
+                    <label for="package" class="form-label">Your package</label>
                     <div class="position-relative">
-                      <input type="text" class="form-control rounded-3 ps-5" />
+                      <input id="package" type="text" class="form-control rounded-3 ps-5" />
                       <span class="input-group-btn position-absolute top-50 translate-middle-y start-0 ms-3">
                         <i class="bi bi-dash"></i>
                       </span>
                     </div>
                   </div>
                   <div class="col-xl-6">
-                    <label class="form-label">Next renewal</label>
+                    <label for="renewal" class="form-label">Next renewal</label>
                     <div class="position-relative">
-                      <input type="text" class="form-control rounded-3 ps-5" />
+                      <input id="renewal" type="text" class="form-control rounded-3 ps-5" />
                       <span class="input-group-btn position-absolute top-50 translate-middle-y start-0 ms-3">
                         <i class="bi bi-dash"></i>
                       </span>
@@ -155,9 +155,10 @@
                   </div>
                 </div>
                 <div>
-                  <label class="form-label">Email</label>
+                  <label for="email" class="form-label">Email</label>
                   <div class="position-relative">
-                    <input type="email" class="form-control input-email rounded-3" value="serenaseraphina@gmail.com" />
+                    <input id="email" type="email" class="form-control input-email rounded-3"
+                      value="serenaseraphina@gmail.com" />
                     <span class="input-group-btn text-success position-absolute top-50 translate-middle-y end-0 me-3">
                       <i class="bi bi-check-circle"></i>
                       <span class="txt d-none d-md-inline-block">Verified</span>
@@ -169,7 +170,7 @@
                 <button class="btn btn-primary" type="submit">Get Subscription</button>
               </div>
             </form>
-            <h5 class="heading4 mb-1 mt-4">Premium Subscription</h5>
+            <h5 class="heading4 mb-1 mt-xl-4 mt-5">Premium Subscription</h5>
             <p class="mb-2 text-secondary">Try Premium Subscription to activate features!</p>
             <ul class="row row-gap-4 mt-4 mb-4">
               <li class="col-md-6">
@@ -339,7 +340,7 @@
               <h6 class="text-capitalize text-heading">Account</h6>
               <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center p-2 fs-18 active" href="profile.html">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="profile.html">
                     <i class="bi bi-person-fill"></i>
                     <span class="txt">Account Information</span>
                   </a>
@@ -351,9 +352,15 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="manage-subscriptions">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18 active" href="manage-subscriptions.html">
                     <i class="bi bi-journal-album"></i>
                     <span class="txt">Manage Subscriptions</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="change-password.html">
+                    <i class="bi bi-shield-lock-fill"></i>
+                    <span class="txt">Change Password</span>
                   </a>
                 </li>
                 <li class="nav-item">

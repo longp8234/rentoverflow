@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rentoverflow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./assets/css/font.css">
+  <link rel="stylesheet" href="./assets/css/libs/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/libs/bootstrap-icons.css">
+  <link rel="stylesheet" href="./assets/css/libs/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./assets/css/libs/leaflet.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="shortcut icon" href="./assets/image/fav.png" type="image/x-icon">
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container d-flex justify-content-between align-items-center flex-md-row flex-row-reverse h-100">
+        <div class="header-inner d-flex align-items-center">
+          <!-- Logo -->
+          <a href="index.html" class="header-logo d-flex align-items-center">
+            <img src="./assets/image/fav.png" />
+            <strong class="txt ms-1 fs-20 fw-semibold d-lg-block d-sm-none">Rentoverflow</strong>
+          </a>
+          <!-- Search + New Property -->
+          <div class="search-box d-md-flex d-none align-items-center rounded-pill">
+            <i class="ph ph-magnifying-glass fs-20"></i>
+            <input type="text" class="input-box w-100" placeholder="City, area or neighborhood">
+          </div>
+          <button class="header-alert d-md-block d-none fw-medium">New property alert</button>
+        </div>
+        <!-- Sign In -->
+        <button class="btn-menu d-xl-none" type="button" data-bs-toggle="modal" data-bs-target="#modalNavMobile">
+          <i class="bi bi-justify-right fs-20"></i>
+        </button>
+        <div class="header-dropdown d-none d-xl-block">
+          <div class="header-account">
+            <button class="btn d-flex align-items-center rounded-pill" id="userMenu" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <span class="txt fs-18 fw-medium">Account</span>
+              <i class="bi bi-justify-right fs-20"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow px-2 py-4" aria-labelledby="userMenu">
+              <li>
+                <a class="item d-flex align-items-center gap-2 p-2 fs-18" href="profile.html">
+                  <i class="bi bi-person-fill text-primary"></i> Profile
+                </a>
+              </li>
+              <li>
+                <a class="item d-flex align-items-center gap-2 p-2 fs-18" href="manage-subscriptions.html">
+                  <i class="bi bi-award-fill text-primary"></i> Membership
+                </a>
+              </li>
+              <li>
+                <a class="item d-flex align-items-center gap-2 p-2 fs-18" href="user-favourites.html">
+                  <i class="bi bi-star-fill text-primary"></i> Favourites
+                </a>
+              </li>
+              <li>
+                <a class="item d-flex align-items-center gap-2 p-2 fs-18" href="properties.html">
+                  <i class="bi bi-chat-text-fill text-primary"></i> Search Agents
+                </a>
+              </li>
+              <li class="mt-2 pt-2 border-top">
+                <a class="item d-flex align-items-center gap-2 p-2 fs-18" href="#!">
+                  <i class="bi bi-wechat text-primary"></i> FAQ
+                </a>
+              </li>
+              <li>
+                <a class="item d-flex align-items-center gap-2 p-2 fs-18 mt-2 text-danger" href="signin.html">
+                  <i class="bi bi-box-arrow-right"></i> Log Out
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- PROFILE -->
+    <div class="profile">
+      <div class="container">
+        <div class="row">
+          <!-- Sidebar -->
+          <div class="col-xl-3 d-none d-xl-block">
+            <div class="profile-sidebar px-3">
+              <div class="text-center">
+                <div class="profile-avt">
+                  <img src="./assets/image/avatar.jpg" class="w-100 h-100 object-fit-cover" alt="Serena Seraphina" />
+                </div>
+                <h6 class="profile-name fs-20 fw-semibold mt-3 mb-1">Serena Seraphina</h6>
+                <span class="profile-mail text-secondary">serenaseraphina@gmail.com</span>
+              </div>
+              <ul class="profile-nav-list d-flex flex-column gap-2 mt-4 pt-4 border-top border-light">
+                <li>
+                  <a class="profile-nav-link d-flex align-items-center gap-2 fs-18 rounded-3" href="profile.html">
+                    <i class="bi bi-person-fill text-primary"></i> Account Information
+                  </a>
+                </li>
+                <li>
+                  <a class="profile-nav-link d-flex align-items-center gap-2 fs-18 rounded-3 active"
+                    href="user-favourites.html">
+                    <i class="bi bi-star-fill text-primary"></i> User Favorites
+                  </a>
+                </li>
+                <li>
+                  <a class="profile-nav-link d-flex align-items-center gap-2 fs-18 rounded-3"
+                    href="manage-subscriptions.html">
+                    <i class="bi bi-award-fill text-primary"></i> Manage Subscriptions
+                  </a>
+                </li>
+                <li>
+                  <a class="profile-nav-link d-flex align-items-center gap-2 fs-18 rounded-3"
+                    href="change-password.html">
+                    <i class="bi bi-shield-lock-fill text-primary"></i> Change Password
+                  </a>
+                </li>
+                <li>
+                  <a class="profile-nav-link d-flex align-items-center gap-2 fs-18 rounded-3 text-danger"
+                    href="signin.html">
+                    <i class="bi bi-box-arrow-right"></i> Log Out
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Main Content -->
+          <div class="col-xl-9 profile-info">
+            <h5 class="heading4 mb-1">Subscription Details</h5>
+            <p class="mb-0 text-secondary">Plan type, duration, price, and benefits.</p>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-3 g-4 mt-0">
+              <!-- Card -->
+              <div class="col">
+                <div class="card card-rent" data-id="1">
+                  <div class="swiper card-thumb-swiper w-100">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/1.jpg" class="card-img-top" alt="rent1" />
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/2.jpg" class="card-img-top" alt="rent2" />
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/3.jpg" class="card-img-top" alt="rent3" />
+                        </a>
+                      </div>
+                    </div>
+                    <!-- Optional navigation -->
+                    <div class="swiper-button-next swiper-button-next-1"></div>
+                    <div class="swiper-button-prev swiper-button-prev-1"></div>
+                  </div>
+                  <a href="rent-detail.html" class="card-body">
+                    <div class="card-body-top d-flex align-items-center justify-content-between">
+                      <strong class="card-title heading4 text-primary">$850,000<small class="txt fs-18 fw-normal">/
+                          month</small></strong>
+                      <span class="card-wishlist btn-toggle active">
+                        <i class="bi bi-heart"></i>
+                        <i class="bi bi-heart-fill"></i>
+                      </span>
+                    </div>
+                    <span class="card-desc">
+                      <i class="bi bi-geo-alt"></i>
+                      <span class="txt">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                    </span>
+                    <div class="card-info d-flex flex-wrap align-items-center">
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-bed fs-18"></i>
+                        <span class="txt fs-18">4 Rooms</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-frame-corners fs-18"></i>
+                        <span class="txt fs-18">27m²</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <span class="txt fs-18">Flat</span>
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card-rent" data-id="2">
+                  <div class="swiper card-thumb-swiper w-100">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/2.jpg" class="card-img-top" alt="rent2" />
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/3.jpg" class="card-img-top" alt="rent3" />
+                        </a>
+                      </div>
+                    </div>
+                    <!-- Optional navigation -->
+                    <div class="swiper-button-next swiper-button-next-2"></div>
+                    <div class="swiper-button-prev swiper-button-prev-2"></div>
+                  </div>
+                  <a href="rent-detail.html" class="card-body">
+                    <div class="card-body-top d-flex align-items-center justify-content-between">
+                      <strong class="card-title heading4 text-primary">$850,000<small class="txt fs-18 fw-normal">/
+                          month</small></strong>
+                      <span class="card-wishlist btn-toggle active">
+                        <i class="bi bi-heart"></i>
+                        <i class="bi bi-heart-fill"></i>
+                      </span>
+                    </div>
+                    <span class="card-desc">
+                      <i class="bi bi-geo-alt"></i>
+                      <span class="txt">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                    </span>
+                    <div class="card-info d-flex flex-wrap align-items-center">
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-bed fs-18"></i>
+                        <span class="txt fs-18">4 Rooms</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-frame-corners fs-18"></i>
+                        <span class="txt fs-18">27m²</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <span class="txt fs-18">Flat</span>
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card-rent" data-id="3">
+                  <div class="swiper card-thumb-swiper w-100">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/3.jpg" class="card-img-top" alt="rent3" />
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/1.jpg" class="card-img-top" alt="rent1" />
+                        </a>
+                      </div>
+                    </div>
+                    <!-- Optional navigation -->
+                    <div class="swiper-button-next swiper-button-next-3"></div>
+                    <div class="swiper-button-prev swiper-button-prev-3"></div>
+                  </div>
+                  <a href="rent-detail.html" class="card-body">
+                    <div class="card-body-top d-flex align-items-center justify-content-between">
+                      <strong class="card-title heading4 text-primary">$850,000<small class="txt fs-18 fw-normal">/
+                          month</small></strong>
+                      <span class="card-wishlist btn-toggle active">
+                        <i class="bi bi-heart"></i>
+                        <i class="bi bi-heart-fill"></i>
+                      </span>
+                    </div>
+                    <span class="card-desc">
+                      <i class="bi bi-geo-alt"></i>
+                      <span class="txt">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                    </span>
+                    <div class="card-info d-flex flex-wrap align-items-center">
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-bed fs-18"></i>
+                        <span class="txt fs-18">4 Rooms</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-frame-corners fs-18"></i>
+                        <span class="txt fs-18">27m²</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <span class="txt fs-18">Flat</span>
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card-rent" data-id="4">
+                  <div class="swiper card-thumb-swiper w-100">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/4.jpg" class="card-img-top" alt="rent1" />
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/3.jpg" class="card-img-top" alt="rent2" />
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/2.jpg" class="card-img-top" alt="rent3" />
+                        </a>
+                      </div>
+                    </div>
+                    <!-- Optional navigation -->
+                    <div class="swiper-button-next swiper-button-next-4"></div>
+                    <div class="swiper-button-prev swiper-button-prev-4"></div>
+                  </div>
+                  <a href="rent-detail.html" class="card-body">
+                    <div class="card-body-top d-flex align-items-center justify-content-between">
+                      <strong class="card-title heading4 text-primary">$850,000<small class="txt fs-18 fw-normal">/
+                          month</small></strong>
+                      <span class="card-wishlist btn-toggle active">
+                        <i class="bi bi-heart"></i>
+                        <i class="bi bi-heart-fill"></i>
+                      </span>
+                    </div>
+                    <span class="card-desc">
+                      <i class="bi bi-geo-alt"></i>
+                      <span class="txt">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                    </span>
+                    <div class="card-info d-flex flex-wrap align-items-center">
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-bed fs-18"></i>
+                        <span class="txt fs-18">4 Rooms</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-frame-corners fs-18"></i>
+                        <span class="txt fs-18">27m²</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <span class="txt fs-18">Flat</span>
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card-rent" data-id="5">
+                  <div class="swiper card-thumb-swiper w-100">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/5.jpg" class="card-img-top" alt="rent2" />
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/1.jpg" class="card-img-top" alt="rent3" />
+                        </a>
+                      </div>
+                    </div>
+                    <!-- Optional navigation -->
+                    <div class="swiper-button-next swiper-button-next-5"></div>
+                    <div class="swiper-button-prev swiper-button-prev-5"></div>
+                  </div>
+                  <a href="rent-detail.html" class="card-body">
+                    <div class="card-body-top d-flex align-items-center justify-content-between">
+                      <strong class="card-title heading4 text-primary">$850,000<small class="txt fs-18 fw-normal">/
+                          month</small></strong>
+                      <span class="card-wishlist btn-toggle active">
+                        <i class="bi bi-heart"></i>
+                        <i class="bi bi-heart-fill"></i>
+                      </span>
+                    </div>
+                    <span class="card-desc">
+                      <i class="bi bi-geo-alt"></i>
+                      <span class="txt">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                    </span>
+                    <div class="card-info d-flex flex-wrap align-items-center">
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-bed fs-18"></i>
+                        <span class="txt fs-18">4 Rooms</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-frame-corners fs-18"></i>
+                        <span class="txt fs-18">27m²</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <span class="txt fs-18">Flat</span>
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card-rent" data-id="6">
+                  <div class="swiper card-thumb-swiper w-100">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/6.jpg" class="card-img-top" alt="rent3" />
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/2.jpg" class="card-img-top" alt="rent1" />
+                        </a>
+                      </div>
+                    </div>
+                    <!-- Optional navigation -->
+                    <div class="swiper-button-next swiper-button-next-6"></div>
+                    <div class="swiper-button-prev swiper-button-prev-6"></div>
+                  </div>
+                  <a href="rent-detail.html" class="card-body">
+                    <div class="card-body-top d-flex align-items-center justify-content-between">
+                      <strong class="card-title heading4 text-primary">$850,000<small class="txt fs-18 fw-normal">/
+                          month</small></strong>
+                      <span class="card-wishlist btn-toggle active">
+                        <i class="bi bi-heart"></i>
+                        <i class="bi bi-heart-fill"></i>
+                      </span>
+                    </div>
+                    <span class="card-desc">
+                      <i class="bi bi-geo-alt"></i>
+                      <span class="txt">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                    </span>
+                    <div class="card-info d-flex flex-wrap align-items-center">
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-bed fs-18"></i>
+                        <span class="txt fs-18">4 Rooms</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-frame-corners fs-18"></i>
+                        <span class="txt fs-18">27m²</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <span class="txt fs-18">Flat</span>
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card-rent" data-id="7">
+                  <div class="swiper card-thumb-swiper w-100">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/1.jpg" class="card-img-top" alt="rent1" />
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/2.jpg" class="card-img-top" alt="rent2" />
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/3.jpg" class="card-img-top" alt="rent3" />
+                        </a>
+                      </div>
+                    </div>
+                    <!-- Optional navigation -->
+                    <div class="swiper-button-next swiper-button-next-7"></div>
+                    <div class="swiper-button-prev swiper-button-prev-7"></div>
+                  </div>
+                  <a href="rent-detail.html" class="card-body">
+                    <div class="card-body-top d-flex align-items-center justify-content-between">
+                      <strong class="card-title fs-24 fw-semibold text-primary">$850,000<small
+                          class="txt fs-18 fw-normal">/ month</small></strong>
+                      <span class="card-wishlist btn-toggle active">
+                        <i class="bi bi-heart"></i>
+                        <i class="bi bi-heart-fill"></i>
+                      </span>
+                    </div>
+                    <span class="card-desc">
+                      <i class="bi bi-geo-alt"></i>
+                      <span class="txt">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                    </span>
+                    <div class="card-info d-flex flex-wrap align-items-center">
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-bed fs-18"></i>
+                        <span class="txt fs-18">4 Rooms</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-frame-corners fs-18"></i>
+                        <span class="txt fs-18">27m²</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <span class="txt fs-18">Flat</span>
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card-rent" data-id="8">
+                  <div class="swiper card-thumb-swiper w-100">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/2.jpg" class="card-img-top" alt="rent2" />
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/3.jpg" class="card-img-top" alt="rent3" />
+                        </a>
+                      </div>
+                    </div>
+                    <!-- Optional navigation -->
+                    <div class="swiper-button-next swiper-button-next-8"></div>
+                    <div class="swiper-button-prev swiper-button-prev-8"></div>
+                  </div>
+                  <a href="rent-detail.html" class="card-body">
+                    <div class="card-body-top d-flex align-items-center justify-content-between">
+                      <strong class="card-title fs-24 fw-semibold text-primary">$850,000<small
+                          class="txt fs-18 fw-normal">/ month</small></strong>
+                      <span class="card-wishlist btn-toggle active">
+                        <i class="bi bi-heart"></i>
+                        <i class="bi bi-heart-fill"></i>
+                      </span>
+                    </div>
+                    <span class="card-desc">
+                      <i class="bi bi-geo-alt"></i>
+                      <span class="txt">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                    </span>
+                    <div class="card-info d-flex flex-wrap align-items-center">
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-bed fs-18"></i>
+                        <span class="txt fs-18">4 Rooms</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-frame-corners fs-18"></i>
+                        <span class="txt fs-18">27m²</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <span class="txt fs-18">Flat</span>
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card-rent" data-id="9">
+                  <div class="swiper card-thumb-swiper w-100">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/3.jpg" class="card-img-top" alt="rent3" />
+                        </a>
+                      </div>
+                      <div class="swiper-slide">
+                        <a href="rent-detail.html" class="card-thumb">
+                          <img src="./assets/image/rent/1.jpg" class="card-img-top" alt="rent1" />
+                        </a>
+                      </div>
+                    </div>
+                    <!-- Optional navigation -->
+                    <div class="swiper-button-next swiper-button-next-9"></div>
+                    <div class="swiper-button-prev swiper-button-prev-9"></div>
+                  </div>
+                  <a href="rent-detail.html" class="card-body">
+                    <div class="card-body-top d-flex align-items-center justify-content-between">
+                      <strong class="card-title fs-24 fw-semibold text-primary">$850,000<small
+                          class="txt fs-18 fw-normal">/ month</small></strong>
+                      <span class="card-wishlist btn-toggle active">
+                        <i class="bi bi-heart"></i>
+                        <i class="bi bi-heart-fill"></i>
+                      </span>
+                    </div>
+                    <span class="card-desc">
+                      <i class="bi bi-geo-alt"></i>
+                      <span class="txt">Maya's Bakehouse, 37 Tulse Hill London, SW2 2TJ, United Kingdom</span>
+                    </span>
+                    <div class="card-info d-flex flex-wrap align-items-center">
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-bed fs-18"></i>
+                        <span class="txt fs-18">4 Rooms</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <i class="ph ph-frame-corners fs-18"></i>
+                        <span class="txt fs-18">27m²</span>
+                      </span>
+                      <span class="card-info-item d-flex align-items-center">
+                        <span class="txt fs-18">Flat</span>
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <!-- End card -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row row-gap-4">
+          <!-- Logo + description -->
+          <div class="col-xl-3 col-md-5">
+            <a href="index.html" class="footer-logo d-flex align-items-center">
+              <img src="./assets/image/fav-primary.png" alt="Rentoverflow">
+              <strong class="txt mb-0">Rentoverflow</strong>
+            </a>
+            <p class="footer-desc">
+              Rentoverflow is not just a place to stay, but a place where every love and new journey of life begins.
+            </p>
+            <div class="footer-social d-flex">
+              <a class="footer-social-link" href="https://www.facebook.com/" target="_blank">
+                <i class="bi bi-facebook fs-5"></i>
+                <span class="blind">button social</span>
+              </a>
+              <a class="footer-social-link" href="https://www.instagram.com/" target="_blank">
+                <i class="bi bi-instagram fs-5"></i>
+                <span class="blind">button social</span>
+              </a>
+              <a class="footer-social-link" href="https://www.twitter.com/" target="_blank">
+                <i class="bi bi-twitter fs-5"></i>
+                <span class="blind">button social</span>
+              </a>
+            </div>
+          </div>
+          <!-- Column 1 -->
+          <div class="footer-nav col-xl-2 col-md-3 col-6">
+            <h6 class="fw-medium mb-0">Home</h6>
+            <ul class="list-unstyled">
+              <li><a href="#!" class="footer-nav-link">Top UK cities</a></li>
+              <li><a href="#!" class="footer-nav-link">Rental Properties</a></li>
+              <li><a href="#!" class="footer-nav-link">Popular cities</a></li>
+            </ul>
+          </div>
+          <!-- Column 2 -->
+          <div class="footer-nav col-xl-2 col-md-3 col-6">
+            <h6 class="fw-medium mb-0">About us</h6>
+            <ul class="list-unstyled">
+              <li><a href="#!" class="footer-nav-link">Contact Us</a></li>
+              <li><a href="#!" class="footer-nav-link">Terms & Conditions</a></li>
+              <li><a href="#!" class="footer-nav-link">Blog</a></li>
+            </ul>
+          </div>
+          <!-- Column 3: Newsletter -->
+          <div class="footer-newsletter col-xl-3 d-xl-block d-flex flex-column align-items-md-center">
+            <h6 class="fw-medium mb-0">Join Rentoverflow</h6>
+            <p class="footer-newsletter-desc text-secondary small">Subscribe our Rentroflow to get more future Updates
+            </p>
+            <form class="footer-newsletter-form position-relative d-flex">
+              <input type="email" class="form-control" placeholder="Email">
+              <button class="btn d-flex position-absolute top-50 translate-middle-y" type="submit">
+                <i class="ph ph-caret-right fs-20"></i>
+                <span class="blind">button form newsletter</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalNavMobile" tabindex="-1" aria-labelledby="modalNavMobileLabel" aria-hidden="true">
+    <div class="modal-dialog modal-menu-mobile">
+      <div class="modal-content">
+        <div class="menu-mobile bg-white">
+          <div class="modal-heading d-flex align-items-center justify-content-between">
+            <!-- Logo -->
+            <a href="index.html" class="header-logo d-flex align-items-center">
+              <img src="./assets/image/fav.png" />
+              <strong class="txt ms-1 fs-20 fw-semibold">Rentoverflow</strong>
+            </a>
+            <button type="button" data-bs-dismiss="modal">
+              <i class="bi bi-x fs-24"></i>
+            </button>
+          </div>
+          <ul class="menu-mobile-nav-list">
+            <li class="menu-mobile-nav-item">
+              <h6 class="text-capitalize text-heading">Trending Pages</h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="index.html">
+                    <i class="bi bi-house-fill"></i>
+                    <span class="txt">Home</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="properties.html">
+                    <i class="bi bi-search-heart-fill"></i>
+                    <span class="txt">Search Properties</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-door-open-fill"></i>
+                    <span class="txt">New property alert</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-mobile-nav-item">
+              <h6 class="text-capitalize text-heading">About Us</h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-chat-square-quote-fill"></i>
+                    <span class="txt">Terms & Conditions</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-newspaper"></i>
+                    <span class="txt">Blog Rentoverflow</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="#!">
+                    <i class="bi bi-wechat"></i>
+                    <span class="txt">FAQ</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-mobile-nav-item nav-account">
+              <h6 class="text-capitalize text-heading">Account</h6>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="profile.html">
+                    <i class="bi bi-person-fill"></i>
+                    <span class="txt">Account Information</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18 active" href="user-favourites.html">
+                    <i class="bi bi-star-fill"></i>
+                    <span class="txt">User Favorites</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="manage-subscriptions.html">
+                    <i class="bi bi-journal-album"></i>
+                    <span class="txt">Manage Subscriptions</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="change-password.html">
+                    <i class="bi bi-shield-lock-fill"></i>
+                    <span class="txt">Change Password</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center p-2 fs-18" href="signin.html">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span class="txt">Log Out</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/js/libs/jquery.min.js"></script>
+  <script src="./assets/js/libs/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/libs/phosphor-icons.js"></script>
+  <script src="./assets/js/libs/leaflet.js"></script>
+  <script src="./assets/js/libs/swiper-bundle.min.js"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
