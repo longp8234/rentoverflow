@@ -242,6 +242,16 @@
         });
     }
 
+    const showPaymentType = function () {
+        $('.modal-payment .form-check-input').each(function (index, item) {
+            $(item).on('change', function () {
+                $('.payment-btn .type').removeClass('show')
+                if (item.checked) {
+                    $('.payment-btn .type').eq(index).addClass('show')
+                }
+            })
+        })
+    }
 
     // Open popup
     const handleOpenPopup = function () {
@@ -281,6 +291,7 @@
         initCitiesSwiper()
         initDetailSwiper()
         showPassword()
+        showPaymentType()
         handleOpenPopup()
     });
 })(window, window.jQuery);
